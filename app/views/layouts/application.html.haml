@@ -1,16 +1,27 @@
 !!!
 %html
   %head
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Footmarks
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
     = csrf_meta_tags
   %body.container
-    - if notice.present?
-      %aside.alert.alert-success
-        = notice
-    - if alert.present?
-      %aside.alert.alert-danger
-        = alert
-    = yield
+    %header
+      .row
+        .col-xs-12
+          .title
+            = link_to "FootMarks", root_path
+
+      .row
+        .col-xs-12
+          = render 'layouts/navigation'
+
+    .row
+      .col-xs-12
+        = render 'layouts/messages'
+
+    .row
+      .col-xs-12
+        = yield

@@ -1,0 +1,25 @@
+-# navigation styled for Bootstrap 3.0
+%nav.navbar.navbar-default
+  .navbar-header
+    %button.navbar-toggle{"data-target" => ".navbar-collapse", "data-toggle" => "collapse", :type => "button"}
+      %span.sr-only Toggle navigation
+      %span.icon-bar
+      %span.icon-bar
+      %span.icon-bar
+  .collapse.navbar-collapse
+    %ul.nav.navbar-nav.navbar-left
+      %li= link_to "bla", root_path
+      %li.divider-vertical
+      %li= link_to "bla", root_path
+      %li.divider-vertical
+      %li.dropdown
+        %a#drop1.dropdown-toggle{ "data-toggle" => "dropdown", href: "#", :role => "button" }
+          Admin
+          %b.caret
+        %ul.dropdown-menu{ "aria-labelledby" => "drop1", role: "menu" }
+          - if user_signed_in?
+            %li= link_to "Log Out", destroy_user_session_path, method: :delete
+          %li= link_to "bla", root_path
+          %li= link_to "bla", root_path
+          %li= link_to "bla", root_path
+          %li= link_to "bla", root_path
