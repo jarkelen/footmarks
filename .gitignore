@@ -36,3 +36,4 @@ bower.json
 .powenv
 
 config/database.yml
+node_modules
