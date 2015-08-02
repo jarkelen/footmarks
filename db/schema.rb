@@ -11,27 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150802110544) do
+ActiveRecord::Schema.define(version: 20150802121946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "clubs", force: :cascade do |t|
+    t.integer  "league_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "clubs", ["league_id"], name: "index_clubs_on_league_id", using: :btree
+
   create_table "footmarks", force: :cascade do |t|
-    t.integer  "nr",             null: false
-    t.date     "visit_date",     null: false
-    t.string   "ground",         null: false
+    t.integer  "nr"
+    t.date     "visit_date"
+    t.string   "ground"
     t.string   "street"
     t.string   "city"
-    t.string   "country",        null: false
-    t.string   "result",         null: false
-    t.string   "season",         null: false
-    t.string   "kickoff",        null: false
-    t.integer  "gate",           null: false
+    t.string   "result"
+    t.string   "season"
+    t.string   "kickoff"
+    t.integer  "gate"
     t.decimal  "ticket_price"
     t.boolean  "countfor92",     null: false
-    t.string   "home_club",      null: false
-    t.string   "away_club",      null: false
-    t.string   "league",         null: false
+    t.integer  "club_id",        null: false
+    t.integer  "away_club_id",   null: false
     t.string   "programme_link"
     t.string   "ticket_link"
     t.float    "latitude"
@@ -40,7 +47,20 @@ ActiveRecord::Schema.define(version: 20150802110544) do
     t.datetime "updated_at",     null: false
   end
 
+  add_index "footmarks", ["away_club_id"], name: "index_footmarks_on_away_club_id", using: :btree
+  add_index "footmarks", ["club_id"], name: "index_footmarks_on_club_id", using: :btree
   add_index "footmarks", ["nr"], name: "index_footmarks_on_nr", unique: true, using: :btree
+
+  create_table "leagues", force: :cascade do |t|
+    t.string   "country"
+    t.string   "name"
+    t.integer  "step"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "leagues", ["country"], name: "index_leagues_on_country", using: :btree
+  add_index "leagues", ["step"], name: "index_leagues_on_step", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

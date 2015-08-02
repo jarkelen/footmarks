@@ -1,21 +1,19 @@
 class CreateFootmarks < ActiveRecord::Migration
   def change
     create_table :footmarks do |t|
-      t.integer :nr, null: false
-      t.date :visit_date, null: false
-      t.string :ground, null: false
+      t.integer :nr
+      t.date :visit_date
+      t.string :ground
       t.string :street
       t.string :city
-      t.string :country, null: false
-      t.string :result, null: false
-      t.string :season, null: false
-      t.string :kickoff, null: false
-      t.integer :gate, null: false
+      t.string :result
+      t.string :season
+      t.string :kickoff
+      t.integer :gate
       t.decimal :ticket_price
       t.boolean :countfor92, null: false
-      t.string :home_club, null: false
-      t.string :away_club, null: false
-      t.string :league, null: false
+      t.integer :club_id, null: false
+      t.integer :away_club_id, null: false
       t.string :programme_link
       t.string :ticket_link
       t.float :latitude
@@ -24,5 +22,7 @@ class CreateFootmarks < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :footmarks, :nr, unique: true
+    add_index :footmarks, :club_id
+    add_index :footmarks, :away_club_id
   end
 end
