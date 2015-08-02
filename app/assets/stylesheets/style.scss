@@ -4,16 +4,10 @@ h1 {
   color: $base-color;
 }
 
-header .title {
-  margin: 30px 50px;
-  background-color: $base-color;
-  padding: 10px 20px;
-  width: 210px;
-  @include round-corners;
 
-
-  a, a:visited, a:hover {
-    font-size: 36px;
-    color: #FFFFFF;
-  }
+.authentication_title {
+  text-align: center;
+  font-size: 300%;
+  color: #FFFFFF;
+  font-weight: bold;
 }

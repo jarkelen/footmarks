@@ -1,0 +1,40 @@
+@import "variables.scss";
+
+header .navbar .navbar-brand {
+  a, a:visited, a:hover {
+    color: #fff;
+    font-size: 20px;
+    text-shadow: none;
+    font-weight: 200;
+    padding: 0;
+    height: 40px;
+    vertical-align: middle;
+    line-height: 40px;
+  }
+}
+.contrast-sea-blue header .navbar > .nav > li.dark > a:hover {
+  background: $base-color;
+}
+.box {
+  margin-top: 20px;
+
+  .box-header {
+    padding: 5px 15px;
+
+    .btn {
+      padding: 3px 12px;
+    }
+  }
+}
+.alert {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+.well {
+  background-color: #f4f4f4;
+}
+form {
+  .alert {
+    margin-bottom: 20px;
+  }
+}

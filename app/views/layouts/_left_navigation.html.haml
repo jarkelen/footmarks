@@ -1,0 +1,41 @@
+%nav#main-nav
+  .navigation
+    / search form visible on phone
+    .search
+      %form{ action: "search_results.html", method: "get" }
+        .search-wrapper
+          %input.search-query.form-control{ autocomplete: "off", name: "q", placeholder: "Search...", type: "text", value: ""}/
+          %button.btn.btn-link.icon-search{ name: "button", type: "submit"}
+
+    / navigation items
+    %ul.nav.nav-stacked
+      / single navigation item
+      %li{ class: "#{'active' if current_page?(root_path)}" }
+        = link_to root_path do
+          %i.icon-dashboard
+          %span= I18n.t('general.site.dashboard')
+      - if user_signed_in?
+        %li{ class: "#{'active' if current_page?(root_path)}" }
+          = link_to root_path do
+            %i.icon-group
+            %span Bla
+        %li{ class: "#{'active' if current_page?(root_path)}" }
+          = link_to root_path do
+            %i.icon-group
+            %span Bla
+        %li
+          %a.dropdown-collapse{ href: "#", class: "#{'in' if current_page?(root_path)}" }
+            %i.icon-cogs
+            %span Settings
+            %i.icon-angle-down.angle-down
+
+          - if current_page?(root_path)
+            - style = "block"
+          - else
+            - style = "none"
+
+          %ul.nav.nav-stacked{ style: "display: #{style};", class: "#{'in' if current_page?(root_path)}" }
+            %li{ class: "#{'active' if current_page?(root_path)}" }
+              = link_to root_path do
+                %i.icon-cog
+                %span Clubs
