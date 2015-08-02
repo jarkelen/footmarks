@@ -11,10 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150731173049) do
+ActiveRecord::Schema.define(version: 20150802110544) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "footmarks", force: :cascade do |t|
+    t.integer  "nr",             null: false
+    t.date     "visit_date",     null: false
+    t.string   "ground",         null: false
+    t.string   "street"
+    t.string   "city"
+    t.string   "country",        null: false
+    t.string   "result",         null: false
+    t.string   "season",         null: false
+    t.string   "kickoff",        null: false
+    t.integer  "gate",           null: false
+    t.decimal  "ticket_price"
+    t.boolean  "countfor92",     null: false
+    t.string   "home_club",      null: false
+    t.string   "away_club",      null: false
+    t.string   "league",         null: false
+    t.string   "programme_link"
+    t.string   "ticket_link"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "footmarks", ["nr"], name: "index_footmarks_on_nr", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

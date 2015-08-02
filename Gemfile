@@ -21,7 +21,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'quiet_assets'
-  gem 'rack-mini-profiler'
+  #gem 'rack-mini-profiler'
 end
 
 group :production do
