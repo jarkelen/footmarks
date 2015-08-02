@@ -2,12 +2,6 @@
 @import "theme/variables";
 @import "theme/utilities";
 
-$lightest: #f5f6f6;
-$light: darken($lightest, 15%);
-
-$dark: #2b2d30;
-$darkest: #000000;
-
 $white: #fff;
 $contentBackground: $lightest;
 

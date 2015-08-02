@@ -1,5 +1,3 @@
-@import "variables.scss";
-
 header .navbar .navbar-brand {
   a, a:visited, a:hover {
     color: #fff;
@@ -12,8 +10,8 @@ header .navbar .navbar-brand {
     line-height: 40px;
   }
 }
-.contrast-sea-blue header .navbar > .nav > li.dark > a:hover {
-  background: $base-color;
+.contrast-sea-blue header .navbar > .nav > li.dark > a {
+  background: #2C6700;
 }
 .box {
   margin-top: 20px;

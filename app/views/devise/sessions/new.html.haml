@@ -27,9 +27,12 @@
                       = f.check_box :remember_me
                       = f.label :remember_me
                   = f.submit class: 'btn btn-block', value: I18n.t('.devise.sessions.sign_in')
+                .text-center
+                  %hr.hr-normal
+                  = render "devise/shared/links"
         .login-container-footer
           .container
             .row
               .col-sm-12
-                .text-center
-                  = render "devise/shared/links"
+                .copyright
+                  &copy; 2015 Dutch Addick
