@@ -5,6 +5,7 @@ en:
     form:
       save:     Save
       filter:   Filter
+      found:     found
       clear:    Clear
       cancel:   Cancel
       details:  details
