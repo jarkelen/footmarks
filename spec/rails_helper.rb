@@ -16,6 +16,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
   config.order = 'rand'
   config.include FactoryGirl::Syntax::Methods
+  config.include SiteHelpers, type: :feature
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)
