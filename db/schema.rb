@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20150802121946) do
     t.boolean  "countfor92",     null: false
     t.integer  "club_id",        null: false
     t.integer  "away_club_id",   null: false
+    t.integer  "league_id"
     t.string   "programme_link"
     t.string   "ticket_link"
     t.float    "latitude"
@@ -49,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150802121946) do
 
   add_index "footmarks", ["away_club_id"], name: "index_footmarks_on_away_club_id", using: :btree
   add_index "footmarks", ["club_id"], name: "index_footmarks_on_club_id", using: :btree
+  add_index "footmarks", ["league_id"], name: "index_footmarks_on_league_id", using: :btree
   add_index "footmarks", ["nr"], name: "index_footmarks_on_nr", unique: true, using: :btree
 
   create_table "leagues", force: :cascade do |t|
