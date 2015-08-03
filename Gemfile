@@ -25,6 +25,11 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'better_errors'
   gem 'quiet_assets'
+  gem 'factory_girl_rails'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'database_cleaner', '1.0.1'
+  gem 'launchy'
   #gem 'rack-mini-profiler'
 end
 

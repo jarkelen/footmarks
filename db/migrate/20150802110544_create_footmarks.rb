@@ -14,6 +14,7 @@ class CreateFootmarks < ActiveRecord::Migration
       t.boolean :countfor92, null: false
       t.integer :club_id, null: false
       t.integer :away_club_id, null: false
+      t.integer :league_id
       t.string :programme_link
       t.string :ticket_link
       t.float :latitude
@@ -23,6 +24,7 @@ class CreateFootmarks < ActiveRecord::Migration
     end
     add_index :footmarks, :nr, unique: true
     add_index :footmarks, :club_id
+    add_index :footmarks, :league_id
     add_index :footmarks, :away_club_id
   end
 end

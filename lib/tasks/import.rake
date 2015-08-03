@@ -78,6 +78,7 @@ namespace :footmarks do
           visit.ticket_link = attributes[20]
           visit.longitude = attributes[21]
           visit.latitude = attributes[22]
+          visit.league_id = attributes[18]
           visit.save!
           puts "Visit #{attributes[4]} added"
         end
