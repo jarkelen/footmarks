@@ -19,14 +19,14 @@
           = link_to root_path do
             %i.icon-group
             %span Bla
-        %li{ class: "#{'active' if current_page?(root_path)}" }
-          = link_to root_path do
+        %li{ class: "#{'active' if current_page?(footmarks_path)}" }
+          = link_to footmarks_path do
             %i.icon-group
-            %span Bla
+            %span= I18n.t('footmark.titles.index')
         %li
           %a.dropdown-collapse{ href: "#", class: "#{'in' if current_page?(root_path)}" }
             %i.icon-cogs
-            %span Settings
+            %span= I18n.t('admin.settings')
             %i.icon-angle-down.angle-down
 
           - if current_page?(root_path)

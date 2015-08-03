@@ -4,6 +4,9 @@ en:
       user:
         email:              Email
         password:           Password
+      footmark:
+        club_id:            Thuisclub
+        away_club_id:       Uitclub
 
 
 

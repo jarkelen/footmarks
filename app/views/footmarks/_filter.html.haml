@@ -1,0 +1,21 @@
+.box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+  .box-header.sea-blue-background
+    .title
+      = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: 'btn'
+    .actions
+      %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+        %i.icon-remove
+      %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+        %i
+  .box-content.box-no-padding
+    .responsive-table
+      .scrollable-area
+        = search_form_for @q, url: footmarks_path, method: :get, html: { class: "form-inline"} do |f|
+          .form-group
+            = f.select :club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.club_id').downcase} -" }, { class: 'form-control' }
+          .form-group
+            = f.select :away_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.away_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: 'form-control' }
+          .form-group
+            //= f.collection_select :role_eq, [['team_user', I18n.t('.user.roles.team_user')],['end_user', I18n.t('.user.roles.end_user')]], :first, :last, { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.user.role').downcase} -" }, { class: "form-control" }
+          = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.filter'))
+          //= link_to I18n.t('.general.form.clear'), users_path, class: "btn btn-default"

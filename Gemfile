@@ -7,6 +7,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'puma'
 gem 'devise'
+gem 'ransack'
+gem 'kaminari'
+gem 'memcachier'
+gem 'dalli'
 
 gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
 gem 'sass-rails', '~> 5.0'
