@@ -30,6 +30,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner', '1.0.1'
   gem 'launchy'
+  gem 'shoulda-matchers'
   #gem 'rack-mini-profiler'
 end
 
