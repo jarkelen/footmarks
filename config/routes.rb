@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'site#dashboard'
-  
+  root 'dashboard#index'
+
   resources :footmarks
 end

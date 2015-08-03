@@ -14,6 +14,7 @@ en:
       confirm:  Are you sure?
     site:
       title:      FootMarks
+      dashboard:  Dashboard
   admin:
     settings:   Settings
   footmark:

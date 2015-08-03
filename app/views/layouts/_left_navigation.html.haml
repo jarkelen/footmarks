@@ -15,10 +15,6 @@
           %i.icon-dashboard
           %span= I18n.t('general.site.dashboard')
       - if user_signed_in?
-        %li{ class: "#{'active' if current_page?(root_path)}" }
-          = link_to root_path do
-            %i.icon-group
-            %span Bla
         %li{ class: "#{'active' if current_page?(footmarks_path)}" }
           = link_to footmarks_path do
             %i.icon-group

@@ -23,6 +23,7 @@ namespace :footmarks do
 
           country = countries[attributes[3].to_i]
 
+          league.id = attributes[0]
           league.name = attributes[1]
           league.step = attributes[2]
           league.country = country
@@ -43,6 +44,7 @@ namespace :footmarks do
           club = Club.new
 
           league = League.where(id: attributes[7]).first
+          club.id = attributes[0]
           club.name = attributes[1]
           club.league_id = league.id unless league.blank?
           club.save!
