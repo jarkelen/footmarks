@@ -63,12 +63,16 @@ namespace :footmarks do
           attributes = line.split(",")
           visit = Footmark.new
 
+          goals = attributes[6].split("-")
+
+
           visit.nr = attributes[1]
           visit.visit_date = attributes[2]
           visit.ground = attributes[3]
           visit.street = attributes[4]
           visit.city = attributes[5]
-          visit.result = attributes[6]
+          visit.goals_home = goals[0].to_i
+          visit.goals_away = goals[1].to_i
           visit.season = attributes[7]
           visit.kickoff = attributes[8]
           visit.gate = attributes[9]

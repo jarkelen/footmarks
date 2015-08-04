@@ -6,7 +6,8 @@ class CreateFootmarks < ActiveRecord::Migration
       t.string :ground
       t.string :street
       t.string :city
-      t.string :result
+      t.integer :goals_home
+      t.integer :goals_away
       t.string :season
       t.string :kickoff
       t.integer :gate
