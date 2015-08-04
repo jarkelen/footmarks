@@ -10,4 +10,5 @@
           %small= "#{decorates.data_field(footmark.ground)} | "
           %small= "#{decorates.result} | "
           %small= decorates.data_field(footmark.gate)
-    .action= link_to I18n.t('.general.form.details'), footmark_path(footmark) 
+    .action
+      = link_to I18n.t('.general.form.details'), footmark_path(footmark), class: 'btn btn-default btn-small'
