@@ -37,3 +37,4 @@ bower.json
 
 config/database.yml
 node_modules
+.vagrant/
