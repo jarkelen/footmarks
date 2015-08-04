@@ -35,14 +35,4 @@
           .scrollable-area.footmarks
             %ol.list-group
               - @footmarks.each do |footmark|
-                - decorate footmark do |decorates|
-                  %li.list-group-item.clearfix
-                    %h3
-                      %small.pull-right= link_to I18n.t('.general.form.details'), footmark_path(footmark)
-                      .nr= footmark.nr
-                      .match= "#{decorates.home_club} v #{decorates.away_club}"
-                    %h4.details
-                      %small= "#{l footmark.visit_date.to_date} | "
-                      %small= "#{decorates.data_field(footmark.ground)} | "
-                      %small= "#{decorates.result} | "
-                      %small= decorates.data_field(footmark.gate)
+                = render "footmark", footmark: footmark
