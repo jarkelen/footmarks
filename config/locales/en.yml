@@ -22,3 +22,9 @@ en:
     titles:
       index:    FootMarks
       new:      Add footmark
+      edit:     Edit footmark
+      remove:   Remove footmark
+    messages:
+      created:  Footmark has been created
+      updated:  Footmark has been updated
+      removed:  Footmark has been removed

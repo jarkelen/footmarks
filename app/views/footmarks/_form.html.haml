@@ -1,0 +1,39 @@
+.box
+  .box-header.sea-blue-background
+    .title
+      .icon-edit
+      = title
+    .actions
+      %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+        %i.icon-remove
+      %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+        %i
+  .box-content
+    = form_for @footmark, html: { class: "form-horizontal"} do |f|
+      = render "layouts/form_messages", target: @footmak
+      .form-group.row
+        .col-md-3= f.label I18n.t('.testrun.form.project_id')
+        .col-md-5= f.select :project_id, options_for_select(@projects.map{ |p| [p.project_name, p.id] }, @testrun.project_id), { include_blank: true, prompt: "- #{I18n.t('.testrun.form.project_id').downcase} -" }, { class: 'form-control' }
+      .form-group.row
+        .col-md-3= f.label I18n.t('.testrun.form.testtype_id')
+        .col-md-5= f.select :testtype_id, options_for_select(@testtypes.map{ |t| [t.name, t.id] }, @testrun.testtype_id), { include_blank: true, prompt: "- #{I18n.t('.testrun.form.testtype_id').downcase} -" }, { class: 'form-control' }
+      .form-group.row
+        .col-md-3.date_label= f.label I18n.t('.testrun.form.execution_date')
+        .col-md-5
+          %div
+            #datepicker.datepicker.input-group
+              = f.text_field :execution_date, as: :string, "data-format" => "dd-MM-yyyy", class: "form-control"
+              %span.input-group-addon
+                %span.icon-calendar{"data-date-icon" => "icon-calendar", "data-time-icon" => "icon-time"}
+      .form-group.row
+        .col-md-3= f.label I18n.t('.testrun.form.passed')
+        .col-md-2= f.text_field :passed, class: "form-control", type: :number, step: "any"
+      .form-group.row
+        .col-md-3= f.label I18n.t('.testrun.form.failed')
+        .col-md-2= f.text_field :failed, class: "form-control", type: :number, step: "any"
+      .form-group.row
+        .col-md-3= f.label I18n.t('.testrun.form.not_executed')
+        .col-md-2= f.text_field :not_executed, class: "form-control", type: :number, step: "any"
+      .form-actions.form-actions-padding-sm.form-actions-padding-md.form-actions-padding-lg
+        = f.submit(class: 'btn btn-primary', value: I18n.t('.general.form.save'))
+        = link_to I18n.t('.general.form.cancel'), testruns_path, class: 'btn'

@@ -21,6 +21,6 @@
             = f.select :away_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.away_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.season_eq.blank? ? nil : "selected"
-            = f.collection_select :season_eq, [['2002-2003', '2002-2003'],['2012-2013', '2012-2013']], :first, :last, { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: "form-control #{selected}" }
+            = f.select :season_eq, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @q.season_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: "form-control #{selected}" }
           = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.filter'))
           = link_to I18n.t('.general.form.clear'), footmarks_path, class: 'btn btn-default'
