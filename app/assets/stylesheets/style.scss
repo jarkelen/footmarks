@@ -1,10 +1,10 @@
 @import "variables.scss";
 
 h1 {
-  color: #B11F05;
+  color: $secondary-color;
 }
 .page-header h1 {
-  //color: #B11F05;
+  color: $secondary-color;
 }
 
 .authentication_title {
@@ -28,13 +28,18 @@ h1 {
   .details {
     float: left;
     clear: both;
-    margin-left: 50px;
+    margin-left: 75px;
     margin-top: 0;
     margin-bottom: 0;
   }
   .nr {
     width: 50px;
     float: left;
+    color: $secondary-color;
+    font-weight: bold;
+    font-size: 36px;
+    margin-top: 15px;
+    text-align: center;
   }
   .match {
     float: left;

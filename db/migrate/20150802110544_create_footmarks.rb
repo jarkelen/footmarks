@@ -13,7 +13,7 @@ class CreateFootmarks < ActiveRecord::Migration
       t.integer :gate
       t.decimal :ticket_price
       t.boolean :countfor92, null: false
-      t.integer :club_id, null: false
+      t.integer :home_club_id, null: false
       t.integer :away_club_id, null: false
       t.integer :league_id
       t.string :programme_link
@@ -24,7 +24,7 @@ class CreateFootmarks < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_index :footmarks, :nr, unique: true
-    add_index :footmarks, :club_id
+    add_index :footmarks, :home_club_id
     add_index :footmarks, :league_id
     add_index :footmarks, :away_club_id
   end

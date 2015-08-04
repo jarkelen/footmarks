@@ -78,7 +78,7 @@ namespace :footmarks do
           visit.gate = attributes[9]
           visit.ticket_price = attributes[10]
           visit.countfor92 = attributes[11]
-          visit.club_id = attributes[13]
+          visit.home_club_id = attributes[13]
           visit.away_club_id = attributes[14]
           visit.programme_link = attributes[19]
           visit.ticket_link = attributes[20]

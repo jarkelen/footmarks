@@ -26,9 +26,3 @@
               = link_to destroy_user_session_path, method: :delete do
                 %i.icon-signout
                 = I18n.t('devise.sessions.sign_out')
-
-    / search form - hidden on phone
-    %form.navbar-form.navbar-right.hidden-xs{:action => "search_results.html", :method => "get"}
-      %button.btn.btn-link.icon-search{:name => "button", :type => "submit"}
-      .form-group
-        %input#q_header.form-control{:autocomplete => "off", :name => "q", :placeholder => "Search...", :type => "text", :value => ""}/

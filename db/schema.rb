@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150802121946) do
     t.integer  "gate"
     t.decimal  "ticket_price"
     t.boolean  "countfor92",     null: false
-    t.integer  "club_id",        null: false
+    t.integer  "home_club_id",   null: false
     t.integer  "away_club_id",   null: false
     t.integer  "league_id"
     t.string   "programme_link"
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20150802121946) do
   end
 
   add_index "footmarks", ["away_club_id"], name: "index_footmarks_on_away_club_id", using: :btree
-  add_index "footmarks", ["club_id"], name: "index_footmarks_on_club_id", using: :btree
+  add_index "footmarks", ["home_club_id"], name: "index_footmarks_on_home_club_id", using: :btree
   add_index "footmarks", ["league_id"], name: "index_footmarks_on_league_id", using: :btree
   add_index "footmarks", ["nr"], name: "index_footmarks_on_nr", unique: true, using: :btree
 

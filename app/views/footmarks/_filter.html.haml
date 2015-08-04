@@ -14,7 +14,7 @@
       .scrollable-area
         = search_form_for @q, url: footmarks_path, method: :get, html: { class: "form-inline"} do |f|
           .form-group
-            = f.select :club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.club_id').downcase} -" }, { class: 'form-control' }
+            = f.select :home_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.home_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.club_id').downcase} -" }, { class: 'form-control' }
           .form-group
             = f.select :away_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.away_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: 'form-control' }
           .form-group

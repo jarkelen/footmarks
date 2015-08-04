@@ -39,9 +39,8 @@
                   %li.list-group-item.clearfix
                     %h3
                       %small.pull-right= link_to I18n.t('.general.form.details'), footmark_path(footmark)
-                      .nr
-                        .label.label-success= footmark.nr
-                      .match= "#{footmark.club.name} v #{Club.find(footmark.away_club_id).name}" unless footmark.club.blank?
+                      .nr= footmark.nr
+                      .match= "#{decorates.home_club} v #{decorates.away_club}"
                     %h4.details
                       %small= "#{l footmark.visit_date.to_date} | "
                       %small= "#{decorates.data_field(footmark.ground)} | "
