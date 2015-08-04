@@ -1,0 +1,14 @@
+- if target.errors.any?
+  .alert.alert-danger.alert-dismissable
+    %a.close{"data-dismiss" => "alert", :href => "#"}
+      ×
+    %h4
+      %i.icon-remove-sign
+      - if target.errors.size > 1
+        = "#{target.errors.size} #{I18n.t('.general.error_single')}"
+      - else
+        = "#{target.errors.size} #{I18n.t('.general.error_plural')}"
+      = I18n.t('.general.error_text')
+    %ul
+      - target.errors.full_messages.each do |msg|
+        %li= msg
