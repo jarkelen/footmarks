@@ -69,7 +69,7 @@ namespace :footmarks do
           visit.nr = attributes[1]
           visit.visit_date = attributes[2]
           visit.ground = attributes[3]
-          visit.street = attributes[4]
+          visit.street = attributes[4].gsub!(/\./,',')
           visit.city = attributes[5]
           visit.goals_home = goals[0].to_i
           visit.goals_away = goals[1].to_i
@@ -86,7 +86,7 @@ namespace :footmarks do
           visit.latitude = attributes[22]
           visit.league_id = attributes[18]
           visit.save!
-          puts "Visit #{attributes[4]} added"
+          puts "Visit #{visit.street} added"
         end
         counter += 1
       end

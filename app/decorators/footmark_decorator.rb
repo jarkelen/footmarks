@@ -13,4 +13,8 @@ class FootmarkDecorator < BaseDecorator
     footmark.away_club.blank? ? "-" : footmark.away_club.name
   end
 
+  def flag
+    country = footmark.league.country.gsub(' ','').downcase
+    image_tag("flags/#{country}.png")
+  end
 end

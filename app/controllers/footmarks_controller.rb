@@ -11,6 +11,7 @@ class FootmarksController < ApplicationController
     @footmarks = @q.result.includes(:home_club).includes(:away_club).order('nr DESC, visit_date DESC')
     @footmarks = @footmarks.limit(10) if params[:q].blank?
     @found = @footmarks.count unless @footmarks.blank?
+    get_form_data
   end
 
   def show
