@@ -8,6 +8,9 @@ en:
         club_id:            Home club
         away_club_id:       Away club
         season:             Season
+      league:
+        name:               League
+        country:            Country
 
 
 

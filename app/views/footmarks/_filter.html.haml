@@ -14,6 +14,12 @@
       .scrollable-area.filter
         = search_form_for @q, url: footmarks_path, method: :get, html: { class: "form-inline"} do |f|
           .form-group
+            - selected = @q.league_country_eq.blank? ? nil : "selected"
+            = f.select :league_country_eq, options_for_select(@countries.map{ |c| [c.country, c.country] }, @q.league_country_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.country').downcase} -" }, { class: "form-control #{selected}" }
+          .form-group
+            - selected = @q.league_id_eq.blank? ? nil : "selected"
+            = f.select :league_id_eq, options_for_select(@leagues.map{ |l| [l.name, l.id] }, @q.league_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.name').downcase} -" }, { class: "form-control #{selected}" }
+          .form-group
             - selected = @q.home_club_id_eq.blank? ? nil : "selected"
             = f.select :home_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.home_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.club_id').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
@@ -23,4 +29,7 @@
             - selected = @q.season_eq.blank? ? nil : "selected"
             = f.select :season_eq, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @q.season_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: "form-control #{selected}" }
           = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.filter'))
-          = link_to I18n.t('.general.form.clear'), footmarks_path, class: 'btn btn-default'
+          - if footmarks_path.count('?') == 1
+            = link_to I18n.t('.general.form.clear'), "#{footmarks_path}&clear=true", class: 'btn btn-default'
+          - else
+            = link_to I18n.t('.general.form.clear'), "#{footmarks_path}?clear=true", class: 'btn btn-default'

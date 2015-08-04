@@ -2,6 +2,8 @@ class FootmarksController < ApplicationController
 
   def index
     filter = Array.new
+    filter << [:league_country_eq, :footmarks_league_country]
+    filter << [:league_id_eq, :footmarks_league_id]
     filter << [:home_club_id_eq, :footmarks_home_club_id]
     filter << [:away_club_id_eq, :footmarks_away_club_id]
     filter << [:season_eq, :footmarks_season]
@@ -68,5 +70,7 @@ class FootmarksController < ApplicationController
   def get_form_data
     @clubs = Club.order(:name)
     @seasons = Footmark.select(:season).distinct.order('season DESC')
+    @countries = League.select(:country).distinct.order('country ASC')
+    @leagues = League.distinct.order('name ASC')
   end
 end

@@ -15,6 +15,10 @@ class FootmarkDecorator < BaseDecorator
 
   def flag
     country = footmark.league.country.gsub(' ','').downcase
-    image_tag("flags/#{country}.png")
+    if country == "other"
+      image_tag("flags/eu.png")
+    else
+      image_tag("flags/#{country}.png")
+    end
   end
 end
