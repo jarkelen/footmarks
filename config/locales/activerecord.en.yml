@@ -28,6 +28,7 @@ en:
       league:
         name:               League
         country:            Country
+        step:               Step
 
 
 

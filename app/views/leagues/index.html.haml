@@ -1,0 +1,49 @@
+.row
+  .col-sm-12
+    .page-header
+      / page title
+      %h1.pull-left
+        %i.icon-refresh
+        %span= I18n.t('league.titles.index')
+      / breadcrumbs
+      .pull-right
+        %ul.breadcrumb
+          %li
+            = link_to root_path do
+              %i.icon-dashboard
+          %li.separator
+            %i.icon-angle-right
+          %li.active= I18n.t('league.titles.index')
+
+.row
+  .col-sm-12
+    = render "filter"
+
+.row
+  .col-sm-12
+    .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+      .box-header.sea-blue-background
+        .title
+          = link_to I18n.t('.league.titles.new'), new_league_path, class: 'btn'
+        .actions
+          %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+            %i.icon-remove
+          %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+            %i
+      .box-content.box-no-padding
+        .responsive-table
+          .scrollable-area.leagues
+            %ol.list-group
+              %table.table
+                %thead
+                  %tr
+                    %th= I18n.t('.activerecord.attributes.league.name')
+                    %th= I18n.t('.activerecord.attributes.league.step')
+                    %th= I18n.t('.activerecord.attributes.league.country')
+                %tbody
+                  - @leagues.each do |league|
+                    - decorate league do |decorates|
+                      %tr
+                        %td= decorates.data_field(league.name)
+                        %td= decorates.data_field(league.step)
+                        %td= decorates.data_field(league.country)

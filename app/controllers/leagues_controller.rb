@@ -2,14 +2,11 @@ class LeaguesController < ApplicationController
 
   def index
     filter = Array.new
-    filter << [:league_country_eq, :leagues_country]
-    filter << [:league_eq, :leagues_league]
+    filter << [:country_eq, :leagues_country]
     set_filter_state(filter)
 
     @q = League.search(params[:q])
-    @leagues = @q.result.includes(:league).order('league_id, name')
-    @leagues = @leagues.limit(10) if params[:q].blank?
-    @found = @leagues.count unless @leagues.blank?
+    @leagues = @q.result.order('country, step')
     get_form_data
   end
 
