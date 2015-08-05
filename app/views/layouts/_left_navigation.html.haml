@@ -19,19 +19,11 @@
           = link_to footmarks_path do
             %i.icon-group
             %span= I18n.t('footmark.titles.index')
-        %li
-          %a.dropdown-collapse{ href: "#", class: "#{'in' if current_page?(root_path)}" }
-            %i.icon-cogs
-            %span= I18n.t('admin.settings')
-            %i.icon-angle-down.angle-down
-
-          - if current_page?(root_path)
-            - style = "block"
-          - else
-            - style = "none"
-
-          %ul.nav.nav-stacked{ style: "display: #{style};", class: "#{'in' if current_page?(root_path)}" }
-            %li{ class: "#{'active' if current_page?(root_path)}" }
-              = link_to root_path do
-                %i.icon-cog
-                %span Clubs
+        %li{ class: "#{'active' if current_page?(clubs_path)}" }
+          = link_to clubs_path do
+            %i.icon-group
+            %span= I18n.t('club.titles.index')
+        %li{ class: "#{'active' if current_page?(leagues_path)}" }
+          = link_to leagues_path do
+            %i.icon-group
+            %span= I18n.t('league.titles.index')

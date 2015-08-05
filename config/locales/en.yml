@@ -29,3 +29,25 @@ en:
       created:  Footmark has been created
       updated:  Footmark has been updated
       removed:  Footmark has been removed
+  club:
+    titles:
+      index:    Clubs
+      show:     Club details
+      new:      Add club
+      edit:     Edit club
+      remove:   Remove club
+    messages:
+      created:  Club has been created
+      updated:  Club has been updated
+      removed:  Club has been removed
+  league:
+    titles:
+      index:    Leagues
+      show:     League details
+      new:      Add league
+      edit:     Edit league
+      remove:   Remove league
+    messages:
+      created:  League has been created
+      updated:  League has been updated
+      removed:  League has been removed

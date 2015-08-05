@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
   resources :footmarks
+  resources :clubs, except: [:show]
+  resources :leagues, except: [:show]
 end
