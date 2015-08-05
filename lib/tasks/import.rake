@@ -1,66 +1,59 @@
 namespace :footmarks do
-  namespace :import do
-    desc 'Import leagues'
-    task leagues: :environment do
-      # Get countries
-      countries = Array.new
-      file = File.open('db/import/countries.csv')
-      counter = 1
-      file.each do |line|
-       if counter > 1
-         attributes = line.split(",")
-         countries[attributes[0].to_i] = "#{attributes[1]}"
-       end
-       counter += 1
+  task import: :environment do
+    # Get countries
+    countries = Array.new
+    file = File.open('db/import/countries.csv')
+    counter = 1
+    file.each do |line|
+      if counter > 1
+        attributes = line.split(",")
+        countries[attributes[0].to_i] = "#{attributes[1]}"
       end
-
-      file = File.open('db/import/leagues.csv')
-      counter = 0
-      file.each do |line|
-        if counter > 0
-          attributes = line.split(",")
-          league = League.new
-
-          country = countries[attributes[3].to_i]
-
-          league.id = attributes[0]
-          league.name = attributes[1]
-          league.step = attributes[2]
-          league.country = country
-          league.save!
-          puts "League #{attributes[1]} added"
-        end
-        counter += 1
-      end
+      counter += 1
     end
 
-    desc 'Import clubs'
-    task clubs: :environment do
-      file = File.open('db/import/clubs.csv')
-      counter = 0
-      file.each do |line|
-        if counter > 0
-          attributes = line.split(",")
-          club = Club.new
+    file = File.open('db/import/leagues.csv')
+    counter = 0
+    file.each do |line|
+      if counter > 0
+        attributes = line.split(",")
+        league = League.new
 
-          league = League.where(id: attributes[7]).first
-          club.id = attributes[0]
-          club.name = attributes[1]
-          club.league_id = league.id unless league.blank?
-          club.save!
-          puts "Club #{attributes[1]} added"
-        end
-        counter += 1
+        country = countries[attributes[3].to_i]
+
+        league.id = attributes[0]
+        league.name = attributes[1]
+        league.step = attributes[2]
+        league.country = country
+        league.save!
+        puts "League #{attributes[1]} added"
       end
+      counter += 1
     end
 
-    desc 'Import footmarks'
-    task footmarks: :environment do
-      file = File.open('db/import/vinks.csv')
-      counter = 0
-      file.each do |line|
-        if counter > 0
-          attributes = line.split(",")
+    file = File.open('db/import/clubs.csv')
+    counter = 0
+    file.each do |line|
+      if counter > 0
+        attributes = line.split(",")
+        club = Club.new
+
+        league = League.where(id: attributes[7]).first
+        club.id = attributes[0]
+        club.name = attributes[1]
+        club.league_id = league.id unless league.blank?
+        club.save!
+        puts "Club #{attributes[1]} added"
+      end
+      counter += 1
+    end
+
+    file = File.open('db/import/vinks.csv')
+    counter = 0
+    file.each do |line|
+      if counter > 0
+        attributes = line.split(",")
+        if attributes[15] == "1"
           visit = Footmark.new
 
           goals = attributes[6].split("-")
@@ -88,9 +81,9 @@ namespace :footmarks do
           visit.save!
           puts "Visit #{visit.street} added"
         end
-        counter += 1
       end
+      counter += 1
     end
-
   end
+
 end

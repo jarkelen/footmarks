@@ -21,6 +21,7 @@ en:
   footmark:
     titles:
       index:    FootMarks
+      show:     Footmark details
       new:      Add footmark
       edit:     Edit footmark
       remove:   Remove footmark

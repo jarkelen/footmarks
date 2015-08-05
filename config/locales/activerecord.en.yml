@@ -5,10 +5,26 @@ en:
         email:              Email
         password:           Password
       footmark:
-        club_id:            Home club
+        home_club_id:       Home club
         away_club_id:       Away club
         season:             Season
         league_id:          League
+        nr:                 Nr
+        visit_date:         Visit date
+        ground:             Ground
+        street:             Street
+        city:               City
+        goals_home:         Goals home
+        goals_away:         Goals away
+        kickoff:            Kickoff
+        gate:               Gate
+        ticket_price:       Ticket price
+        countfor92:         Count for 92
+        programme_link:     Link to programme
+        ticket_link:        Link to ticket
+        longitude:          Longitude
+        latitude:           Latitude
+        result:             Result
       league:
         name:               League
         country:            Country
