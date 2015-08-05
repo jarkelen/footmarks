@@ -19,8 +19,27 @@
           %li.active= I18n.t("footmark.titles.show")
 
 .row
-  .col-sm-12= link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default btn-xs"
-  .col-sm-12= link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger btn-xs"
+  .col-sm-12
+    .pull-right
+      .btn-group
+        = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default"
+        = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger"
+
+.row
+  .col-sm-12
+    .box
+      .box-content.box-double-padding
+        %fieldser
+          .col-sm-4
+            %small.text-muted blavla
+          .col-sm-7.col-sm-offset-1
+            .form-group
+              %label= I18n.t('.activerecord.attributes.footmark.nr')
+              = @footmark.nr
+
+
+
+
 
 
 .row

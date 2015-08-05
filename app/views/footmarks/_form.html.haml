@@ -13,16 +13,16 @@
       = render "layouts/form_messages", target: @footmark
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.countfor92')
-        .col-md-5= f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, include_blank: true
+        .col-xs-5.col-md-2= f.collection_select :countfor92, [[true, "Yes"] ,[false, "No"]], :first, :last, { include_blank: true }, { class: 'form-control' }
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.nr')
-        .col-md-5= f.text_field :nr, class: "form-control", type: :number, step: "0"
+        .col-xs-5.col-md-2= f.text_field :nr, class: "form-control", type: :number, step: "0"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.season')
-        .col-md-5= f.select :season, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @footmark.season), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.league_id').downcase} -" }, { class: 'form-control' }
+        .col-xs-5.col-md-2= f.select :season, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @footmark.season), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: 'form-control' }
       .form-group
         .col-md-3.control-label.date_label= f.label I18n.t('.activerecord.attributes.footmark.visit_date')
-        .col-md-5
+        .col-xs-5.col-md-2
           %div
             #datepicker.datepicker.input-group
               = f.text_field :visit_date, as: :string, "data-format" => "dd-MM-yyyy", class: "form-control"
@@ -49,23 +49,26 @@
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.result')
         .col-md-5
-          .col-xs-2= f.text_field :goals_home, class: "form-control"
-          .col-xs-2= f.text_field :goals_away, class: "form-control"
+          .col-xs-3= f.text_field :goals_home, class: "form-control"
+          .col-xs-1 -
+          .col-xs-3= f.text_field :goals_away, class: "form-control"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.kickoff')
-        .col-md-5= f.text_field :kickoff, class: "form-control"
+        .col-xs-5.col-md-2= f.text_field :kickoff, class: "form-control"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.gate')
-        .col-md-5= f.text_field :gate, class: "form-control", type: :number, step: "0"
+        .col-xs-5.col-md-2= f.text_field :gate, class: "form-control", type: :number, step: "0"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.ticket_price')
-        .col-md-5= f.text_field :ticket_price, class: "form-control", type: :number, step: "2"
+        .col-xs-5.col-md-2= f.text_field :ticket_price, class: "form-control", type: :number, step: "2"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.programme_link')
         .col-md-5= f.text_field :programme_link, class: "form-control"
       .form-group
         .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.ticket_link')
         .col-md-5= f.text_field :ticket_link, class: "form-control"
-      .form-actions.form-actions-padding-sm.form-actions-padding-md.form-actions-padding-lg
-        = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.save'))
-        = link_to I18n.t('.general.form.cancel'), footmarks_path, class: 'btn'
+      .form-actions
+        .row
+          .col-sm-7.col-sm-offset-5
+            = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.save'))
+            = link_to I18n.t('.general.form.cancel'), footmarks_path, class: 'btn'
