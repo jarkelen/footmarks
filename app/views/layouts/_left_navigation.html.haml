@@ -13,17 +13,20 @@
       %li{ class: "#{'active' if current_page?(root_path)}" }
         = link_to root_path do
           %i.icon-dashboard
-          %span= I18n.t('general.site.dashboard')
-      - if user_signed_in?
-        %li{ class: "#{'active' if current_page?(footmarks_path)}" }
-          = link_to footmarks_path do
-            %i.icon-group
-            %span= I18n.t('footmark.titles.index')
-        %li{ class: "#{'active' if current_page?(clubs_path)}" }
-          = link_to clubs_path do
-            %i.icon-group
-            %span= I18n.t('club.titles.index')
-        %li{ class: "#{'active' if current_page?(leagues_path)}" }
-          = link_to leagues_path do
-            %i.icon-group
-            %span= I18n.t('league.titles.index')
+          %span= I18n.t('.general.site.dashboard')
+      %li{ class: "#{'active' if current_page?(footmarks_path)}" }
+        = link_to footmarks_path do
+          %i.icon-trophy
+          %span= I18n.t('.footmark.titles.index')
+      %li{ class: "#{'active' if current_page?(map_path)}" }
+        = link_to map_path do
+          %i.icon-map-marker
+          %span= I18n.t('.map.title')
+      %li{ class: "#{'active' if current_page?(leagues_path)}" }
+        = link_to leagues_path do
+          %i.icon-th
+          %span= I18n.t('.league.titles.index')
+      %li{ class: "#{'active' if current_page?(clubs_path)}" }
+        = link_to clubs_path do
+          %i.icon-th
+          %span= I18n.t('.club.titles.index')

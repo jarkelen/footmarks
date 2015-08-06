@@ -51,3 +51,5 @@ en:
       created:  League has been created
       updated:  League has been updated
       removed:  League has been removed
+  map:
+    title:      Map
