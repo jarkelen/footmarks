@@ -20,7 +20,7 @@
             - selected = @q.league_id_eq.blank? ? nil : "selected"
             = f.select :league_id_eq, options_for_select(@leagues.map{ |l| [l.name, l.id] }, @q.league_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.name').downcase} -" }, { class: "form-control #{selected}" }
           = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.filter'))
-          - if leagues_path.count('?') == 1
-            = link_to I18n.t('.general.form.clear'), "#{leagues_path}&clear=true", class: 'btn btn-default'
+          - if clubs_path.count('?') == 1
+            = link_to I18n.t('.general.form.clear'), "#{clubs_path}&clear=true", class: 'btn btn-default'
           - else
-            = link_to I18n.t('.general.form.clear'), "#{leagues_path}?clear=true", class: 'btn btn-default'
+            = link_to I18n.t('.general.form.clear'), "#{clubs_path}?clear=true", class: 'btn btn-default'

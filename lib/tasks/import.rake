@@ -36,9 +36,9 @@ namespace :footmarks do
     file.each do |line|
       if counter > 0
         attributes = line.split(",")
-        club = Club.new
 
-        league = League.where(id: attributes[7]).first
+        league = League.find(attributes[7]) unless attributes[7].blank?
+        club = Club.new
         club.id = attributes[0]
         club.name = attributes[1]
         club.league_id = league.id unless league.blank?
