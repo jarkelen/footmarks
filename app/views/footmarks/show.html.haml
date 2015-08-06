@@ -1,63 +1,64 @@
-.row
-  .col-sm-12
-    .page-header
-      / page title
-      %h1.pull-left
-        %i.icon-trophy
-        %span= I18n.t("footmark.titles.show")
-      / breadcrumbs
+- cache [@footmark, @footmark.home_club, @footmark.away_club] do
+  .row
+    .col-sm-12
+      .page-header
+        / page title
+        %h1.pull-left
+          %i.icon-trophy
+          %span= I18n.t("footmark.titles.show")
+        / breadcrumbs
+        .pull-right
+          %ul.breadcrumb
+            %li
+              = link_to root_path do
+                %i.icon-dashboard
+            %li.separator
+              %i.icon-angle-right
+            %li= link_to I18n.t('footmark.titles.index'), footmarks_path
+            %li.separator
+              %i.icon-angle-right
+            %li.active= I18n.t("footmark.titles.show")
+
+  .row
+    .col-sm-12
       .pull-right
-        %ul.breadcrumb
-          %li
-            = link_to root_path do
-              %i.icon-dashboard
-          %li.separator
-            %i.icon-angle-right
-          %li= link_to I18n.t('footmark.titles.index'), footmarks_path
-          %li.separator
-            %i.icon-angle-right
-          %li.active= I18n.t("footmark.titles.show")
+        .btn-group
+          = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default"
+          = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger"
 
-.row
-  .col-sm-12
-    .pull-right
-      .btn-group
-        = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default"
-        = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger"
-
-.row
-  .col-sm-12
-    .box
-      .box-content.box-double-padding
-        %fieldser
-          .col-sm-4
-            %small.text-muted blavla
-          .col-sm-7.col-sm-offset-1
-            .form-group
-              %label= I18n.t('.activerecord.attributes.footmark.nr')
-              = @footmark.nr
+  .row
+    .col-sm-12
+      .box
+        .box-content.box-double-padding
+          %fieldser
+            .col-sm-4
+              %small.text-muted blavla
+            .col-sm-7.col-sm-offset-1
+              .form-group
+                %label= I18n.t('.activerecord.attributes.footmark.nr')
+                = @footmark.nr
 
 
 
 
 
 
-.row
-  .col-sm-12= @footmark.nr
-  .col-sm-12= @footmark.season
-  .col-sm-12= @footmark.visit_date.strftime("%d-%M-%Y")
-  .col-sm-12= "#{@footmark.home_club.name} v #{@footmark.away_club.name}"
-  .col-sm-12= @footmark.ground
-  .col-sm-12= @footmark.street
-  .col-sm-12= @footmark.city
-  .col-sm-12= @footmark.gate
-  .col-sm-12= @footmark.kickoff
-  .col-sm-12= "Visited league: [#{@visited_league.step}] #{@visited_league.name}"
-  .col-sm-12= "Current league: [#{@current_league.step}] #{@current_league.name}"
-  .col-sm-12= "#{@footmark.goals_home}-#{@footmark.goals_away}"
-  .col-sm-12= @footmark.ticket_price
-  .col-sm-12= @footmark.ticket_link
-  .col-sm-12= @footmark.programme_link
-  .col-sm-12= @footmark.longitude
-  .col-sm-12= @footmark.latitude
-  .col-sm-12= @footmark.countfor92
+  .row
+    .col-sm-12= @footmark.nr
+    .col-sm-12= @footmark.season
+    .col-sm-12= @footmark.visit_date.strftime("%d-%M-%Y")
+    .col-sm-12= "#{@footmark.home_club.name} v #{@footmark.away_club.name}"
+    .col-sm-12= @footmark.ground
+    .col-sm-12= @footmark.street
+    .col-sm-12= @footmark.city
+    .col-sm-12= @footmark.gate
+    .col-sm-12= @footmark.kickoff
+    .col-sm-12= "Visited league: [#{@visited_league.step}] #{@visited_league.name}"
+    .col-sm-12= "Current league: [#{@current_league.step}] #{@current_league.name}"
+    .col-sm-12= "#{@footmark.goals_home}-#{@footmark.goals_away}"
+    .col-sm-12= @footmark.ticket_price
+    .col-sm-12= @footmark.ticket_link
+    .col-sm-12= @footmark.programme_link
+    .col-sm-12= @footmark.longitude
+    .col-sm-12= @footmark.latitude
+    .col-sm-12= @footmark.countfor92
