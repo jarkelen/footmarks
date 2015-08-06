@@ -1,5 +1,12 @@
 source 'https://rubygems.org'
 
+gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
+gem 'sass-rails', '~> 5.0'
+gem 'coffee-rails', '~> 4.1.0'
+gem 'bootstrap-sass'
+gem 'haml-rails'
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
 
 gem 'rails', '4.2.3'
 gem 'pg'
@@ -11,14 +18,7 @@ gem 'ransack'
 gem 'kaminari'
 gem 'memcachier'
 gem 'dalli'
-
-gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
-gem 'sass-rails', '~> 5.0'
-gem 'coffee-rails', '~> 4.1.0'
-gem 'bootstrap-sass'
-gem 'haml-rails'
-gem 'uglifier', '>= 1.3.0'
-gem 'jquery-rails'
+gem 'geocoder'
 
 group :development, :test do
   gem 'byebug'

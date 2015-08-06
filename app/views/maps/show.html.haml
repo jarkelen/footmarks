@@ -1,0 +1,19 @@
+.row
+  .col-sm-12
+    .page-header
+      / page title
+      %h1.pull-left
+        %i.icon-map-marker
+        %span= I18n.t("map.titles.show")
+      / breadcrumbs
+      .pull-right
+        %ul.breadcrumb
+          %li
+            = link_to root_path do
+              %i.icon-dashboard
+          %li.separator
+            %i.icon-angle-right
+          %li.active= I18n.t("map.titles.show")
+
+.row
+  .col-sm-12

@@ -52,4 +52,5 @@ en:
       updated:  League has been updated
       removed:  League has been removed
   map:
-    title:      Map
+    titles:
+      show:     Map
