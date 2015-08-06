@@ -22,7 +22,7 @@ class MapsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: @footmarks }
+      format.json { render json: @footmarks, root: false }
     end
   end
 

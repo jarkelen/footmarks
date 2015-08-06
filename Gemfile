@@ -19,6 +19,7 @@ gem 'kaminari'
 gem 'memcachier'
 gem 'dalli'
 gem 'geocoder'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug'
