@@ -40,14 +40,14 @@ function initialize() {
       content: contentString
   });
 
-  var marker = new google.maps.Marker({
-    position: new google.maps.LatLng(54.8949509,-2.9116577),
-    map: map,
-    animation: google.maps.Animation.DROP
-  });
-  google.maps.event.addListener(marker, 'click', function() {
-    infowindow.open(map,marker);
-  });
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(54.8949509,-2.9116577),
+      map: map,
+      animation: google.maps.Animation.DROP
+    });
+    google.maps.event.addListener(marker, 'click', function() {
+      infowindow.open(map,marker);
+    });
 }
 
 function loadScript() {
