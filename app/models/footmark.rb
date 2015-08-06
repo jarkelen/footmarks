@@ -1,5 +1,4 @@
 class Footmark < ActiveRecord::Base
-  belongs_to :league
   belongs_to :home_club, class_name: Club, foreign_key: :home_club_id
   belongs_to :away_club, class_name: Club, foreign_key: :away_club_id
 

@@ -52,7 +52,8 @@
   .col-sm-12= @footmark.city
   .col-sm-12= @footmark.gate
   .col-sm-12= @footmark.kickoff
-  .col-sm-12= @footmark.league.name
+  .col-sm-12= "Visited league: [#{@visited_league.step}] #{@visited_league.name}"
+  .col-sm-12= "Current league: [#{@current_league.step}] #{@current_league.name}"
   .col-sm-12= "#{@footmark.goals_home}-#{@footmark.goals_away}"
   .col-sm-12= @footmark.ticket_price
   .col-sm-12= @footmark.ticket_link

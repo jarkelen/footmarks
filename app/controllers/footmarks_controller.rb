@@ -2,7 +2,7 @@ class FootmarksController < ApplicationController
 
   def index
     filter = Array.new
-    filter << [:league_country_eq, :footmarks_league_country]
+    filter << [:home_club_league_country_eq, :footmarks_league_country]
     filter << [:league_id_eq, :footmarks_league_id]
     filter << [:home_club_id_eq, :footmarks_home_club_id]
     filter << [:away_club_id_eq, :footmarks_away_club_id]
@@ -18,6 +18,8 @@ class FootmarksController < ApplicationController
 
   def show
     @footmark = Footmark.find(params[:id])
+    @visited_league = League.find(@footmark.league_id)
+    @current_league = League.find(@footmark.home_club.league.id)
   end
 
   def new
@@ -71,6 +73,6 @@ class FootmarksController < ApplicationController
     @clubs = Club.order(:name)
     @seasons = Footmark.select(:season).distinct.order('season DESC')
     @countries = League.select(:country).distinct.order('country ASC')
-    @leagues = League.distinct.order('name ASC')
+    @leagues = League.distinct.order('country, step, name')
   end
 end
