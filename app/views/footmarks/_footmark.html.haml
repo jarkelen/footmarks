@@ -1,7 +1,7 @@
 - decorate footmark do |decorates|
   %li.list-group-item.clearfix
     .nr= footmark.nr
-    .flag= decorates.flag
+    .flag= decorates.flag(footmark.league.country)
     .match_data
       .match
         %h3= "#{decorates.home_club} v #{decorates.away_club}"

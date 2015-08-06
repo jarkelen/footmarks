@@ -4,7 +4,7 @@
       / page title
       %h1.pull-left
         %i.icon-th
-        %span= I18n.t('league.titles.index')
+        %span= I18n.t('club.titles.index')
       / breadcrumbs
       .pull-right
         %ul.breadcrumb
@@ -13,7 +13,7 @@
               %i.icon-dashboard
           %li.separator
             %i.icon-angle-right
-          %li.active= I18n.t('league.titles.index')
+          %li.active= I18n.t('club.titles.index')
 
 .row
   .col-sm-12
@@ -24,7 +24,7 @@
     .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
       .box-header.sea-blue-background
         .title
-          = link_to I18n.t('.league.titles.new'), new_league_path, class: 'btn'
+          = link_to I18n.t('.club.titles.new'), new_club_path, class: 'btn'
         .actions
           %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
             %i.icon-remove
@@ -32,18 +32,18 @@
             %i
       .box-content.box-no-padding
         .responsive-table
-          .scrollable-area.leagues
+          .scrollable-area.clubs
             %ol.list-group
               %table.table
                 %thead
                   %tr
                     %th= I18n.t('.activerecord.attributes.league.country')
-                    %th= I18n.t('.activerecord.attributes.league.name')
-                    %th= I18n.t('.activerecord.attributes.league.step')
+                    %th= I18n.t('.activerecord.attributes.club.league_id')
+                    %th= I18n.t('.activerecord.attributes.club.name')
                 %tbody
-                  - @leagues.each do |league|
-                    - decorate league do |decorates|
+                  - @clubs.each do |club|
+                    - decorate club do |decorates|
                       %tr
-                        %td= decorates.flag(league.country)
-                        %td= decorates.data_field(league.name)
-                        %td= decorates.data_field(league.step)
+                        %td= decorates.flag(club.league.country) unless club.league.blank?
+                        %td= decorates.data_field(club.league.name) unless club.league.blank?
+                        %td= decorates.data_field(club.name)

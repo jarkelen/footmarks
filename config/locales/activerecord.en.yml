@@ -29,6 +29,9 @@ en:
         name:               League
         country:            Country
         step:               Step
+      club:
+        name:               Club
+        league_id:          League
 
 
 
