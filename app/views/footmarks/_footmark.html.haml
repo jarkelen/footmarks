@@ -1,15 +1,16 @@
-- decorate footmark do |decorates|
-  %li.list-group-item.clearfix
-    .nr= footmark.nr
-    .flag= decorates.flag(footmark.home_club.league.country)
-    .match_data
-      .match
-        %h3= "#{decorates.home_club} v #{decorates.away_club}"
-      .details
-        %h4
-          %small= "#{l footmark.visit_date.to_date} | "
-          %small= "#{decorates.data_field(footmark.ground)} | "
-          %small= "#{decorates.result} | "
-          %small= decorates.data_field(footmark.gate)
-    .action
-      = link_to I18n.t('.general.form.details'), footmark_path(footmark), class: 'btn btn-default btn-small'
+- cache [footmark, footmark.home_club, footmark.away_club, footmark.home_club.league] do
+  - decorate footmark do |decorates|
+    %li.list-group-item.clearfix
+      .nr= footmark.nr
+      .flag= decorates.flag(footmark.home_club.league.country) unless footmark.home_club.league.blank?
+      .match_data
+        .match
+          %h3= "#{decorates.home_club} v #{decorates.away_club}"
+        .details
+          %h4
+            %small= "#{l footmark.visit_date.to_date} | "
+            %small= "#{decorates.data_field(footmark.ground)} | "
+            %small= "#{decorates.result} | "
+            %small= decorates.data_field(footmark.gate)
+      .action
+        = link_to I18n.t('.general.form.details'), footmark_path(footmark), class: 'btn btn-default btn-small'
