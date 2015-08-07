@@ -16,6 +16,8 @@ en:
     site:
       title:      FootMarks
       dashboard:  Dashboard
+      charts:
+        visits_per_season:        Visits per season
   admin:
     settings:   Settings
   footmark:
