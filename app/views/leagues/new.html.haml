@@ -1,0 +1,23 @@
+.row
+  .col-sm-12
+    .page-header
+      / page title
+      %h1.pull-left
+        %i.icon-th
+        %span= I18n.t("league.titles.new")
+      / breadcrumbs
+      .pull-right
+        %ul.breadcrumb
+          %li
+            = link_to root_path do
+              %i.icon-dashboard
+          %li.separator
+            %i.icon-angle-right
+          %li= link_to I18n.t('league.titles.index'), leagues_path
+          %li.separator
+            %i.icon-angle-right
+          %li.active= I18n.t("league.titles.new")
+
+.row
+  .col-sm-12
+    = render "form", title: I18n.t("league.titles.new")

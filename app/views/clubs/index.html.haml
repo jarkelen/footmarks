@@ -40,6 +40,7 @@
                     %th= I18n.t('.activerecord.attributes.league.country')
                     %th= I18n.t('.activerecord.attributes.club.league_id')
                     %th= I18n.t('.activerecord.attributes.club.name')
+                    %th
                 %tbody
                   - @clubs.each do |club|
                     - decorate club do |decorates|
@@ -47,3 +48,6 @@
                         %td= decorates.flag(club.league.country) unless club.league.blank?
                         %td= decorates.data_field(club.league.name) unless club.league.blank?
                         %td= decorates.data_field(club.name)
+                        %td
+                          = link_to I18n.t('.general.form.edit'), edit_club_path(club), class: "btn btn-default"
+                          = link_to I18n.t('.general.form.delete'), club_path(club), method: :delete, data: { confirm: I18n.t('.club.confirm') }, class: "btn btn-danger"

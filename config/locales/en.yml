@@ -30,6 +30,7 @@ en:
       updated:  Footmark has been updated
       removed:  Footmark has been removed
   club:
+    confirm:    'Are you sure? All visits of this club will be deleted also!'
     titles:
       index:    Clubs
       show:     Club details
@@ -41,6 +42,7 @@ en:
       updated:  Club has been updated
       removed:  Club has been removed
   league:
+    confirm:    'Are you sure? All clubs and visits of this league will be deleted also!'
     titles:
       index:    Leagues
       show:     League details
