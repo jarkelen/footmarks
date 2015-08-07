@@ -29,7 +29,7 @@ $(document).ready(function() {
           });
 
           var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data[index].longitude,data[index].latitude),
+            position: new google.maps.LatLng(data[index].latitude,data[index].longitude),
             map: map,
             animation: google.maps.Animation.DROP
           });
