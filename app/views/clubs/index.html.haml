@@ -1,53 +1,57 @@
-.row
-  .col-sm-12
-    .page-header
-      / page title
-      %h1.pull-left
-        %i.icon-th
-        %span= I18n.t('club.titles.index')
-      / breadcrumbs
-      .pull-right
-        %ul.breadcrumb
-          %li
-            = link_to root_path do
-              %i.icon-dashboard
-          %li.separator
-            %i.icon-angle-right
-          %li.active= I18n.t('club.titles.index')
+- if can? :index, Club
+  .row
+    .col-sm-12
+      .page-header
+        / page title
+        %h1.pull-left
+          %i.icon-th
+          %span= I18n.t('club.titles.index')
+        / breadcrumbs
+        .pull-right
+          %ul.breadcrumb
+            %li
+              = link_to root_path do
+                %i.icon-dashboard
+            %li.separator
+              %i.icon-angle-right
+            %li.active= I18n.t('club.titles.index')
 
-.row
-  .col-sm-12
-    = render "filter"
+  .row
+    .col-sm-12
+      = render "filter"
 
-.row
-  .col-sm-12
-    .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
-      .box-header.sea-blue-background
-        .title
-          = link_to I18n.t('.club.titles.new'), new_club_path, class: 'btn'
-        .actions
-          %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
-            %i.icon-remove
-          %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
-            %i
-      .box-content.box-no-padding
-        .responsive-table
-          .scrollable-area.clubs
-            %ol.list-group
-              %table.table
-                %thead
-                  %tr
-                    %th= I18n.t('.activerecord.attributes.league.country')
-                    %th= I18n.t('.activerecord.attributes.club.league_id')
-                    %th= I18n.t('.activerecord.attributes.club.name')
-                    %th
-                %tbody
-                  - @clubs.each do |club|
-                    - decorate club do |decorates|
-                      %tr
-                        %td= decorates.flag(club.league.country) unless club.league.blank?
-                        %td= decorates.data_field(club.league.name) unless club.league.blank?
-                        %td= decorates.data_field(club.name)
-                        %td
-                          = link_to I18n.t('.general.form.edit'), edit_club_path(club), class: "btn btn-default"
-                          = link_to I18n.t('.general.form.delete'), club_path(club), method: :delete, data: { confirm: I18n.t('.club.confirm') }, class: "btn btn-danger"
+  .row
+    .col-sm-12
+      .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+        .box-header.sea-blue-background
+          .title
+            - if can? :create, Club
+              = link_to I18n.t('.club.titles.new'), new_club_path, class: 'btn'
+          .actions
+            %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+              %i.icon-remove
+            %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+              %i
+        .box-content.box-no-padding
+          .responsive-table
+            .scrollable-area.clubs
+              %ol.list-group
+                %table.table
+                  %thead
+                    %tr
+                      %th= I18n.t('.activerecord.attributes.league.country')
+                      %th= I18n.t('.activerecord.attributes.club.league_id')
+                      %th= I18n.t('.activerecord.attributes.club.name')
+                      %th
+                  %tbody
+                    - @clubs.each do |club|
+                      - decorate club do |decorates|
+                        %tr
+                          %td= decorates.flag(club.league.country) unless club.league.blank?
+                          %td= decorates.data_field(club.league.name) unless club.league.blank?
+                          %td= decorates.data_field(club.name)
+                          %td
+                            - if can? :edit, Club
+                              = link_to I18n.t('.general.form.edit'), edit_club_path(club), class: "btn btn-default"
+                            - if can? :destroy, Club
+                              = link_to I18n.t('.general.form.delete'), club_path(club), method: :delete, data: { confirm: I18n.t('.club.confirm') }, class: "btn btn-danger"

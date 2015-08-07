@@ -22,6 +22,7 @@ gem 'memcachier'
 gem 'dalli'
 gem 'geocoder'
 gem 'active_model_serializers'
+gem 'cancancan'
 
 group :development, :test do
   gem 'byebug'
