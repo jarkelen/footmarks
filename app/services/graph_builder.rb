@@ -1,8 +1,10 @@
+=begin
+
 class GraphBuilder
 
   def initialize
   end
-=begin
+
     @countries = Array.new
   def show_countries(user)
     @countries << ["Country", "Vinks"]
@@ -80,3 +82,4 @@ class GraphBuilder
   end
  =end
 end
+=end
