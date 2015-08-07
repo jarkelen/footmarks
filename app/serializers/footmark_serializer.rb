@@ -1,3 +1,5 @@
 class FootmarkSerializer < ActiveModel::Serializer
-  attributes :id, :longitude, :latitude, :home_club_id, :away_club_id
+  attributes :id, :visit_date, :longitude, :latitude
+  has_one :home_club
+  has_one :away_club    
 end

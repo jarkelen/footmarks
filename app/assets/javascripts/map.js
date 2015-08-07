@@ -19,8 +19,9 @@ function initialize() {
 
   $.getJSON( 'map.json', function(data) {
     $.each(data, function(index) {
-      var contentString = '<div id="marker_content">'+
-        '<h2 class="header">bla</h2>'+
+      var contentString = '<div class="marker_content">'+
+        '<p>'+data[index].visit_date+'</p>'+
+        '<h5 class="header">'+data[index].home_club.name+' v '+data[index].away_club.name+'</h5>'+
         '<div class="link"><a href="/footmarks/'+data[index].id+'">details</a></div>'
         '</div>';
 
@@ -45,7 +46,6 @@ function initialize() {
 }
 
 function loadScript() {
-	console.log("map loading ...");
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&callback=initialize';

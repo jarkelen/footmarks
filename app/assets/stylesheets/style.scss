@@ -86,3 +86,15 @@ h1 {
 #map-container #map-canvas label {
   width: auto; display:inline;
 }
+.marker_content {
+  h5 {
+    color: $secondary-color;
+  }
+  .link {
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    font-weight: bold;
+  }
+}
