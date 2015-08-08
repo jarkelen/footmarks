@@ -19,7 +19,7 @@ class BaseDecorator
     when "date"
       value = value.blank? ? "-" : value.strftime("%d-%m-%Y")
     when "amount"
-      value = value.blank? ? "-" : number_to_currency(value, precision: 2, separator: ',')
+      value = value.blank? ? "-" : number_to_currency(value, precision: 2, separator: '.')
     when "boolean"
       if value == true
         value = "<span class='icon-ok'></span>".html_safe

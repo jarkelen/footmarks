@@ -1,101 +1,101 @@
 - if can? :show, Footmark
   - cache [@footmark, @footmark.home_club, @footmark.away_club] do
-    .row
-      .col-sm-12
-        .page-header
-          / page title
-          %h1.pull-left
-            %i.icon-trophy
-            %span= I18n.t("footmark.titles.show")
-          / breadcrumbs
-          .pull-right
-            %ul.breadcrumb
-              %li
-                = link_to root_path do
-                  %i.icon-dashboard
-              %li.separator
-                %i.icon-angle-right
-              %li= link_to I18n.t('footmark.titles.index'), footmarks_path
-              %li.separator
-                %i.icon-angle-right
-              %li.active= I18n.t("footmark.titles.show")
-
-    .row
-      .col-sm-12
-        .pull-right
-          .btn-group
-            - if can? :edit, Footmark
-              = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default"
-            - if can? :destroy, Footmark
-              = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger"
-
-    .row.footmark_details
-      .col-sm-12.col-md-8.box.info
-        .box-content.box-double-padding
-          .lead= "#{@footmark.home_club.name} v #{@footmark.away_club.name}"
-          %table.table
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.nr')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.nr") }= @footmark.nr
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.season')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.season") }= @footmark.season
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.visit_date')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.visit_date") }= @footmark.visit_date.strftime("%d-%M-%Y")
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.ground')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.ground") }= @footmark.ground
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.street')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.street") }= @footmark.street
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.city')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.city") }= @footmark.city
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.gate')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.gate") }= @footmark.gate
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.kickoff')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.kickoff") }= @footmark.kickoff
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.league_id')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.league_id") }= "[#{@visited_league.step}] #{@visited_league.name}"
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.current_league')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.current_league") }= "[#{@current_league.step}] #{@current_league.name}"
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.result')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.result") }= "#{@footmark.goals_home}-#{@footmark.goals_away}"
-            %tr
-              %td.td-label
-                %strong= I18n.t('.activerecord.attributes.footmark.ticket_price')
-              %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.ticket_price") }= @footmark.ticket_price
-
-
-      .col-sm-12.col-md-4.box.images
-        .box-content
-          .logo logo
-          .map map
-          .ticket ticket
-          .programme programme
-
-    .row
-      .col-sm-12
-        .box
-          .box-content
-            .gallery
-              %ul.list-unstyled.list-inline
+    - decorate @footmark do |decorates|
+      .row
+        .col-sm-12
+          .page-header
+            / page title
+            %h1.pull-left
+              %i.icon-trophy
+              %span= I18n.t("footmark.titles.show")
+            / breadcrumbs
+            .pull-right
+              %ul.breadcrumb
                 %li
-                  .picture
+                  = link_to root_path do
+                    %i.icon-dashboard
+                %li.separator
+                  %i.icon-angle-right
+                %li= link_to I18n.t('footmark.titles.index'), footmarks_path
+                %li.separator
+                  %i.icon-angle-right
+                %li.active= I18n.t("footmark.titles.show")
+
+      .row
+        .col-sm-12
+          .pull-right
+            .btn-group
+              - if can? :edit, Footmark
+                = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-default"
+              - if can? :destroy, Footmark
+                = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-danger"
+
+      .row.footmark_details
+        .col-sm-12.col-md-8.box.info
+          .box-content.box-double-padding
+            .lead= "#{@footmark.home_club.name} v #{@footmark.away_club.name}"
+            %table.table
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.nr')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.nr") }= decorates.data_field(@footmark.nr)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.season')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.season") }= decorates.data_field(@footmark.season)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.visit_date')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.visit_date") }= decorates.data_field(@footmark.visit_date, "date")
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.ground')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.ground") }= decorates.data_field(@footmark.ground)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.street')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.street") }= decorates.data_field(@footmark.street)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.city')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.city") }= decorates.data_field(@footmark.city)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.gate')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.gate") }= decorates.data_field(@footmark.gate)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.kickoff')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.kickoff") }= decorates.data_field(@footmark.kickoff)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.league_id')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.league_id") }= decorates.league(@visited_league)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.current_league')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.current_league") }= decorates.league(@current_league)
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.result')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.result") }= decorates.result
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.ticket_price')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.ticket_price") }= decorates.data_field(@footmark.ticket_price, "amount")
+
+
+        .col-sm-12.col-md-4.image_box
+          .ticket= decorates.ticket
+
+        .col-sm-12.col-md-4.image_box
+          .programme= decorates.programme
+
+      .row
+        .col-sm-12
+          .box
+            .box-content
+              .gallery
+                %ul.list-unstyled.list-inline
+                  %li
+                    .picture
