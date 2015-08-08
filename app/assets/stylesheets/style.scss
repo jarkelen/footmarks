@@ -98,3 +98,16 @@ h1 {
     font-weight: bold;
   }
 }
+.footmark_details {
+  .lead {
+    color: $secondary-color;
+    font-weight: bold;
+    text-align: center;
+  }
+  .info {
+    float: right;
+  }
+  .images {
+    float: left;
+  }
+}

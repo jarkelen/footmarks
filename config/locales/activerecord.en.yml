@@ -9,6 +9,7 @@ en:
         away_club_id:       Away club
         season:             Season
         league_id:          Visited league
+        current_league:     Current league
         nr:                 Nr
         visit_date:         Visit date
         ground:             Ground
