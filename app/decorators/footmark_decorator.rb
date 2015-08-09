@@ -27,7 +27,7 @@ class FootmarkDecorator < BaseDecorator
 
   def photo
     unless footmark.programme_link.blank? || footmark.programme_link == ""
-      "<a data-lightbox='flatty' href='#{footmark.programme_link}'><img src='#{footmark.programme_link}' width='300px'></a>".html_safe
+      "<a data-lightbox='flatty' href='#{footmark.programme_link}'><img src='#{footmark.programme_link}' width='250px'></a>".html_safe
     end
   end
 
