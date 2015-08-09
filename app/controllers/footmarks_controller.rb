@@ -20,6 +20,7 @@ class FootmarksController < ApplicationController
     @footmark = Footmark.find(params[:id])
     @visited_league = League.find(@footmark.league_id)
     @current_league = League.find(@footmark.home_club.league.id)
+    @photos = @footmark.photos
   end
 
   def new

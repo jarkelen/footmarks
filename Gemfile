@@ -36,6 +36,7 @@ group :development, :test do
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'rack-mini-profiler'
+  gem 'bullet'
 end
 
 group :production do

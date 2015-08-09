@@ -1,0 +1,12 @@
+- unless @photos.blank?
+  .row
+    .col-sm-12
+      .box
+        .box-content
+          .gallery
+            %ul.list-unstyled.list-inline
+              - @photos.each do |photo|
+                %li
+                  .picture
+                    %a{"data-lightbox" => "flatty", href: "#{photo.url}"}
+                      %img{src: "#{photo.url}", width: "250px"}/
