@@ -15,13 +15,13 @@ class FootmarkDecorator < BaseDecorator
 
   def ticket
     unless footmark.ticket_link.blank? || footmark.ticket_link == ""
-      "<a data-lightbox='flatty' href='#{footmark.ticket_link}'><img src='#{footmark.ticket_link}' width='200px'></a>".html_safe
+      "<a data-lightbox='flatty' href='#{footmark.ticket_link}'><img src='#{footmark.ticket_link}' width='300px'></a>".html_safe
     end
   end
 
   def programme
     unless footmark.programme_link.blank? || footmark.programme_link == ""
-      "<a data-lightbox='flatty' href='#{footmark.programme_link}'><img src='#{footmark.programme_link}' width='200px'></a>".html_safe
+      "<a data-lightbox='flatty' href='#{footmark.programme_link}'><img src='#{footmark.programme_link}' width='300px'></a>".html_safe
     end
   end
 

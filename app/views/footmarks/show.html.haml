@@ -41,12 +41,12 @@
                 %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.nr") }= decorates.data_field(@footmark.nr)
               %tr
                 %td.td-label
-                  %strong= I18n.t('.activerecord.attributes.footmark.season')
-                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.season") }= decorates.data_field(@footmark.season)
-              %tr
-                %td.td-label
                   %strong= I18n.t('.activerecord.attributes.footmark.visit_date')
                 %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.visit_date") }= decorates.data_field(@footmark.visit_date, "date")
+              %tr
+                %td.td-label
+                  %strong= I18n.t('.activerecord.attributes.footmark.season')
+                %td{ "data-label" => I18n.t(".activerecord.attributes.footmark.season") }= decorates.data_field(@footmark.season)
               %tr
                 %td.td-label
                   %strong= I18n.t('.activerecord.attributes.footmark.ground')
