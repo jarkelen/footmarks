@@ -18,10 +18,18 @@
         = link_to footmarks_path do
           %i.icon-trophy
           %span= I18n.t('.footmark.titles.index')
-      %li{ class: "#{'active' if current_page?(map_path)}" }
-        = link_to map_path do
+      %li{ class: "#{'active' if current_page?(site_map_path)}" }
+        = link_to site_map_path do
           %i.icon-map-marker
-          %span= I18n.t('.map.titles.show')
+          %span= I18n.t('.site.map.title')
+      %li{ class: "#{'active' if current_page?(site_tickets_path)}" }
+        = link_to site_tickets_path do
+          %i.icon-ticket
+          %span= I18n.t('.site.tickets.title')
+      %li{ class: "#{'active' if current_page?(site_programmes_path)}" }
+        = link_to site_programmes_path do
+          %i.icon-book
+          %span= I18n.t('.site.programmes.title')
       %li{ class: "#{'active' if current_page?(leagues_path)}" }
         = link_to leagues_path do
           %i.icon-th

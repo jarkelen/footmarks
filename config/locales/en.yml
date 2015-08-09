@@ -55,6 +55,10 @@ en:
       created:  League has been created
       updated:  League has been updated
       removed:  League has been removed
-  map:
-    titles:
-      show:     Map
+  site:
+    map:
+      title:    Map
+    tickets:
+      title:    Tickets
+    programmes:
+      title:    Programmes

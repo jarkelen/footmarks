@@ -12,7 +12,7 @@
   .box-content
     .responsive-table
       .scrollable-area.filter
-        = search_form_for @q, url: map_path, method: :get, html: { class: "form-inline"} do |f|
+        = search_form_for @q, url: search_path, method: :get, html: { class: "form-inline"} do |f|
           .form-group
             - selected = @q.home_club_league_country_eq.blank? ? nil : "selected"
             = f.select :home_club_league_country_eq, options_for_select(@countries.map{ |c| [c.country, c.country] }, @q.home_club_league_country_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.country').downcase} -" }, { class: "form-control #{selected}" }
@@ -29,7 +29,7 @@
             - selected = @q.season_eq.blank? ? nil : "selected"
             = f.select :season_eq, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @q.season_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: "form-control #{selected}" }
           = f.submit(class: 'btn btn-default', value: I18n.t('.general.form.filter'))
-          - if map_path.count('?') == 1
-            = link_to I18n.t('.general.form.clear'), "#{map_path}&clear=true", class: 'btn btn-default'
+          - if search_path.count('?') == 1
+            = link_to I18n.t('.general.form.clear'), "#{search_path}&clear=true", class: 'btn btn-default'
           - else
-            = link_to I18n.t('.general.form.clear'), "#{map_path}?clear=true", class: 'btn btn-default'
+            = link_to I18n.t('.general.form.clear'), "#{search_path}?clear=true", class: 'btn btn-default'

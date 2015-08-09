@@ -13,6 +13,8 @@ class Ability
         can [:index], :dashboard
         can [:index, :show], Footmark
         can [:show], :map
+        can [:show], :tickets
+        can [:show], :programmes
 
         cannot [:create, :edit, :destroy], Club
         cannot [:create, :edit, :destroy], League
