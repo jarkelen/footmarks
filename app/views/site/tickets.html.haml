@@ -27,7 +27,7 @@
           .gallery
             %ul.list-unstyled.list-inline
               - @footmarks.each do |footmark|
-                - unless footmark.ticket_link.blank? || footmark.ticket_link == ""
+                - unless footmark.ticket_link.blank? || footmark.ticket_link == '""'
                   %li
                     .picture
                       .actions
