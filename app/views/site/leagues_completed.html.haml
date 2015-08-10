@@ -18,7 +18,7 @@
 
   .row
     - @leagues.each do |league|
-      .col-sm-5
+      .col-sm-6
         .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
           .box-header.sea-blue-background
             .title
@@ -30,19 +30,12 @@
                 %i
           .box-content.box-no-padding
             .responsive-table
-              .scrollable-area.clubs
-                %ol.list-group
-                  .responsive-table
-                    .scrollable-area
-                      %table.table.clubs
-                        %tbody
-                          - clubs = league.clubs.order(:name)
-                          - clubs.each do |club|
-                            %tr
-                              - if Footmark.where('home_club_id = ?', club.id).blank?
-                                %td.not_visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name
-                              - else
-                                %td.visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name
-  
-
-
+              %table.table.clubs
+                %tbody
+                  - clubs = league.clubs.order(:name)
+                  - clubs.each do |club|
+                    %tr
+                      - if Footmark.where('home_club_id = ?', club.id).blank?
+                        %td.not_visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name
+                      - else
+                        %td.visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name

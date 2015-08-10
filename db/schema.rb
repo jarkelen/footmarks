@@ -41,12 +41,12 @@ ActiveRecord::Schema.define(version: 20150809103306) do
     t.integer  "home_club_id",   null: false
     t.integer  "away_club_id",   null: false
     t.integer  "league_id"
-    t.string   "programme_link"
-    t.string   "ticket_link"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "programme_link"
+    t.string   "ticket_link"
   end
 
   add_index "footmarks", ["away_club_id"], name: "index_footmarks_on_away_club_id", using: :btree
