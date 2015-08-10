@@ -21,10 +21,10 @@
             = f.select :league_id_eq, options_for_select(@leagues.map{ |l| [l.name, l.id] }, @q.league_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.name').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.home_club_id_eq.blank? ? nil : "selected"
-            = f.select :home_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.home_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.home_club_id').downcase} -" }, { class: "form-control #{selected}" }
+            = f.select :home_club_id_eq, options_for_select(@home_clubs.map{ |c| [c.name, c.id] }, @q.home_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.home_club_id').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.away_club_id_eq.blank? ? nil : "selected"
-            = f.select :away_club_id_eq, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @q.away_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: "form-control #{selected}" }
+            = f.select :away_club_id_eq, options_for_select(@away_clubs.map{ |c| [c.name, c.id] }, @q.away_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.season_eq.blank? ? nil : "selected"
             = f.select :season_eq, options_for_select(@seasons.map{ |s| [s.season, s.season] }, @q.season_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.season').downcase} -" }, { class: "form-control #{selected}" }

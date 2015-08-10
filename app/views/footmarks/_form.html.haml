@@ -35,10 +35,10 @@
             .col-md-5= f.select :league_id, options_for_select(@leagues.map{ |l| [l.name, l.id] }, @footmark.league_id), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.league_id').downcase} -" }, { class: 'form-control' }
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.home_club_id')
-            .col-md-5= f.select :home_club_id, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @footmark.home_club_id), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.home_club_id').downcase} -" }, { class: 'form-control' }
+            .col-md-5= f.select :home_club_id, options_for_select(@home_clubs.map{ |c| [c.name, c.id] }, @footmark.home_club_id), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.home_club_id').downcase} -" }, { class: 'form-control' }
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.away_club_id')
-            .col-md-5= f.select :away_club_id, options_for_select(@clubs.map{ |c| [c.name, c.id] }, @footmark.away_club_id), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: 'form-control' }
+            .col-md-5= f.select :away_club_id, options_for_select(@away_clubs.map{ |c| [c.name, c.id] }, @footmark.away_club_id), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.away_club_id').downcase} -" }, { class: 'form-control' }
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.ground')
             .col-md-5= f.text_field :ground, class: "form-control"
