@@ -47,9 +47,9 @@
                     - @clubs.each do |club|
                       - decorate club do |decorates|
                         %tr
-                          %td= decorates.flag(club.league.country) unless club.league.blank?
-                          %td= decorates.data_field(club.league.name) unless club.league.blank?
-                          %td= decorates.data_field(club.name)
+                          %td{ "data-label" => I18n.t(".activerecord.attributes.league.country") }= decorates.flag(club.league.country) unless club.league.blank?
+                          %td{ "data-label" => I18n.t(".activerecord.attributes.club.league_id") }= decorates.data_field(club.league.name) unless club.league.blank?
+                          %td{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= decorates.data_field(club.name)
                           %td
                             - if can? :edit, Club
                               = link_to I18n.t('.general.form.edit'), edit_club_path(club), class: "btn btn-default"

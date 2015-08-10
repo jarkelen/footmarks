@@ -14,27 +14,38 @@
         = link_to root_path do
           %i.icon-dashboard
           %span= I18n.t('.general.site.dashboard')
-      %li{ class: "#{'active' if current_page?(footmarks_path)}" }
-        = link_to footmarks_path do
-          %i.icon-trophy
-          %span= I18n.t('.footmark.titles.index')
-      %li{ class: "#{'active' if current_page?(site_map_path)}" }
-        = link_to site_map_path do
-          %i.icon-map-marker
-          %span= I18n.t('.site.map.title')
-      %li{ class: "#{'active' if current_page?(site_tickets_path)}" }
-        = link_to site_tickets_path do
-          %i.icon-ticket
-          %span= I18n.t('.site.tickets.title')
-      %li{ class: "#{'active' if current_page?(site_programmes_path)}" }
-        = link_to site_programmes_path do
-          %i.icon-book
-          %span= I18n.t('.site.programmes.title')
-      %li{ class: "#{'active' if current_page?(leagues_path)}" }
-        = link_to leagues_path do
-          %i.icon-th
-          %span= I18n.t('.league.titles.index')
-      %li{ class: "#{'active' if current_page?(clubs_path)}" }
-        = link_to clubs_path do
-          %i.icon-th
-          %span= I18n.t('.club.titles.index')
+      - if can? :index, Footmark
+        %li{ class: "#{'active' if current_page?(footmarks_path)}" }
+          = link_to footmarks_path do
+            %i.icon-trophy
+            %span= I18n.t('.footmark.titles.index')
+      - if can? :view, :leagues_completed
+        %li{ class: "#{'active' if current_page?(site_leagues_completed_path)}" }
+          = link_to site_leagues_completed_path do
+            %i.icon-check
+            %span= I18n.t('.site.leagues_completed.title')
+      - if can? :view, :map
+        %li{ class: "#{'active' if current_page?(site_map_path)}" }
+          = link_to site_map_path do
+            %i.icon-map-marker
+            %span= I18n.t('.site.map.title')
+      - if can? :view, :tickets
+        %li{ class: "#{'active' if current_page?(site_tickets_path)}" }
+          = link_to site_tickets_path do
+            %i.icon-ticket
+            %span= I18n.t('.site.tickets.title')
+      - if can? :view, :programmes
+        %li{ class: "#{'active' if current_page?(site_programmes_path)}" }
+          = link_to site_programmes_path do
+            %i.icon-book
+            %span= I18n.t('.site.programmes.title')
+      - if can? :index, League
+        %li{ class: "#{'active' if current_page?(leagues_path)}" }
+          = link_to leagues_path do
+            %i.icon-th
+            %span= I18n.t('.league.titles.index')
+      - if can? :index, Club
+        %li{ class: "#{'active' if current_page?(clubs_path)}" }
+          = link_to clubs_path do
+            %i.icon-th
+            %span= I18n.t('.club.titles.index')

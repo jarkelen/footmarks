@@ -62,5 +62,7 @@ en:
       title:    Tickets
     programmes:
       title:    Programmes
+    leagues_completed:
+      title:    Leagues completed
   photo:
     add_photo:    Add photo

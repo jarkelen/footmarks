@@ -1,0 +1,48 @@
+- if can? :view, :leagues_completed
+  .row
+    .col-sm-12
+      .page-header
+        / page title
+        %h1.pull-left
+          %i.icon-check
+          %span= I18n.t("site.leagues_completed.title")
+        / breadcrumbs
+        .pull-right
+          %ul.breadcrumb
+            %li
+              = link_to root_path do
+                %i.icon-dashboard
+            %li.separator
+              %i.icon-angle-right
+            %li.active= I18n.t("site.leagues_completed.title")
+
+  .row
+    - @leagues.each do |league|
+      .col-sm-5
+        .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+          .box-header.sea-blue-background
+            .title
+              = league.name
+            .actions
+              %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+                %i.icon-remove
+              %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+                %i
+          .box-content.box-no-padding
+            .responsive-table
+              .scrollable-area.clubs
+                %ol.list-group
+                  .responsive-table
+                    .scrollable-area
+                      %table.table.clubs
+                        %tbody
+                          - clubs = league.clubs.order(:name)
+                          - clubs.each do |club|
+                            %tr
+                              - if Footmark.where('home_club_id = ?', club.id).blank?
+                                %td.not_visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name
+                              - else
+                                %td.visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name
+  
+
+

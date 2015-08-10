@@ -52,11 +52,16 @@ class SiteController < ApplicationController
       format.json { render json: @footmarks, root: false }
     end
   end
+  
+  def leagues_completed
+    @leagues = League.where('step IS NOT NULL AND step < 6').order(:country, :step)
+  end
 
   private
 
   def get_form_data
-    @clubs = Club.order(:name)
+    @home_clubs = Club.where("id IN (?)", Footmark.select(:home_club_id)).order(:name)
+    @away_clubs = Club.where("id IN (?)", Footmark.select(:away_club_id)).order(:name)
     @seasons = Footmark.select(:season).distinct.order('season DESC')
     @countries = League.select(:country).distinct.order('country ASC')
     @leagues = League.distinct.order('country, step, name')

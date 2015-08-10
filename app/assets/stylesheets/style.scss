@@ -116,3 +116,11 @@ h1 {
     margin: 10px 0;
   }
 }
+.clubs {
+  .visited {
+    background-color: #ccffcc;
+  }
+  .not_visited {
+    background-color: #ffcccc;
+  }
+}

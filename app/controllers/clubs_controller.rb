@@ -8,7 +8,7 @@ class ClubsController < ApplicationController
 
     @q = Club.search(params[:q])
     @clubs = @q.result.includes(:league).order('league_id, name')
-    #@clubs = @clubs.limit(10) if params[:q].blank?
+    @clubs = @clubs.limit(25) if params[:q].blank?
     @found = @clubs.count unless @clubs.blank?
     get_form_data
   end
