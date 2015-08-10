@@ -30,7 +30,7 @@ $(document).ready(function() {
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(data[index].latitude,data[index].longitude),
             map: map,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
             icon: image
           });
           google.maps.event.addListener(marker, 'click', function() {
