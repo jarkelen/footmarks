@@ -19,6 +19,7 @@ class Ability
         cannot [:create, :edit, :destroy], Club
         cannot [:create, :edit, :destroy], League
         cannot [:create, :edit, :destroy], Footmark
+        cannot [:create, :edit, :destroy], Photo
       end
     end
   end

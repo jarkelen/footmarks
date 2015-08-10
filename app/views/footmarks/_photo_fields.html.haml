@@ -1,0 +1,4 @@
+.form-group
+  .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.photo.url')
+  .col-md-5= f.text_field :url, class: "form-control"
+  .col-md-3= link_to_remove_association I18n.t('.general.form.delete'), f, class: 'btn btn-danger btn-xs'

@@ -67,7 +67,7 @@ class FootmarksController < ApplicationController
   def footmark_params
     params.require(:footmark).permit(:nr, :visit_date, :ground, :street, :city, :goals_home, :goals_away,
         :season, :kickoff, :gate, :ticket_price, :countfor92, :home_club_id, :away_club_id, :league_id,
-        :programme_link, :ticket_link)
+        :programme_link, :ticket_link, photos_attributes: [:id, :url, :footmark_id, :_destroy])
   end
 
   def get_form_data

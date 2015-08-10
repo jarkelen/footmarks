@@ -8,5 +8,7 @@
 //= require flatty/bootstrap/bootstrap.min
 //= require flatty/plugins/plugins
 //= require flatty/theme
+//= require cocoon
 //= require charts
 //= require map
+
