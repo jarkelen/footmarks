@@ -1,8 +1,17 @@
 var ready;
 ready = function() {
-  if ($("#company_id_eq").length > 0){
-    $.conditionalize($("#league_country_eq"), $("#league_id_eq"), "data-country");
+  if ($("#q_league_country_eq").length > 0){
+    $.conditionalize($("#q_league_country_eq"), $("#q_league_id_eq"), "data-country");
   }
+
+  if ($("#q_home_club_league_country_eq").length > 0){
+    $.conditionalize($("#q_home_club_league_country_eq"), $("#q_league_id_eq"), "data-country");
+
+    if ($("#q_home_club_id_eq").length > 0){
+      //$.conditionalize($("#q_league_id_eq"), $("#q_home_club_id_eq"), "data-league");
+    }
+  }
+
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);

@@ -18,7 +18,7 @@
             = f.select :home_club_league_country_eq, options_for_select(@countries.map{ |c| [c.country, c.country] }, @q.home_club_league_country_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.country').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.league_id_eq.blank? ? nil : "selected"
-            = f.select :league_id_eq, options_for_select(@leagues.map{ |l| [l.name, l.id] }, @q.league_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.name').downcase} -" }, { class: "form-control #{selected}" }
+            = f.select :league_id_eq, options_for_select(@leagues.map{ |l| [l.name, l.id, {'data-country' => l.country}] }, @q.league_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.league.name').downcase} -" }, { class: "form-control #{selected}" }
           .form-group
             - selected = @q.home_club_id_eq.blank? ? nil : "selected"
             = f.select :home_club_id_eq, options_for_select(@home_clubs.map{ |c| [c.name, c.id] }, @q.home_club_id_eq), { include_blank: true, prompt: "- #{I18n.t('.activerecord.attributes.footmark.home_club_id').downcase} -" }, { class: "form-control #{selected}" }

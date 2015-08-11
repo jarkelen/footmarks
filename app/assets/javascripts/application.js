@@ -11,4 +11,4 @@
 //= require cocoon
 //= require charts
 //= require map
-
+//= require general
