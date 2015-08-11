@@ -1,7 +1,5 @@
 $(document).ready(function() {
   if ($("#map-canvas").length > 0){
-    var map;
-
     var mapOptions = {
       center: new google.maps.LatLng(54.8949509,-2.9116577),
       zoom: 6,
@@ -13,7 +11,8 @@ $(document).ready(function() {
     };
 
     // initializing map
-    map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+    var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
+    var image = 'https://dl.dropboxusercontent.com/u/45762137/Football/football-icon.png'
 
     $.getJSON( 'map.json', function(data) {
       $.each(data, function(index) {
@@ -31,7 +30,8 @@ $(document).ready(function() {
           var marker = new google.maps.Marker({
             position: new google.maps.LatLng(data[index].latitude,data[index].longitude),
             map: map,
-            animation: google.maps.Animation.DROP
+            animation: google.maps.Animation.DROP,
+            icon: image
           });
           google.maps.event.addListener(marker, 'click', function() {
             infowindow.open(map,marker);
