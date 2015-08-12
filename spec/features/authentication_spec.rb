@@ -5,7 +5,7 @@ describe "Authentication" do
   context "unregistered visitors" do
     it "shows a login option" do
       visit root_path
-      expect(page).to have_content(I18n.t(".devise.sessions.sign_in"))
+      expect(page).to have_content I18n.t(".devise.sessions.sign_in")
     end
 
     it "doesn't show footmarks" do
@@ -14,31 +14,26 @@ describe "Authentication" do
     end
   end
 
-  describe "registered users" do
-    let!(:user){ create(:user, email: "test@test.nl") }
-#user = FactoryGirl.create(:user, role: 'team_user', company: company)
+  describe "guest user" do
+    user = FactoryGirl.create(:user, email: "test@test.nl", role: 'guest')
+    
     it "shows a login option" do
       visit root_path
-      expect(page).to have_content(I18n.t(".devise.sessions.sign_in"))
+      expect(page).to have_content I18n.t(".devise.sessions.sign_in")
     end
   
     before :each do
       sign_in(user)
     end
     
-    it "doesn't show footmarks" do
+    it "can login" do
       visit root_path
       expect(page).to have_content I18n.t('.footmark.titles.index')
     end
 
     it "shows a logout option" do
       visit root_path
-      expect(page).to have_content(I18n.t(".devise.sessions.sign_out"))
-    end
-
-    it "shows the admin menu" do
-      visit root_path
-      expect(page).to have_content(I18n.t(".admin.settings"))
+      expect(page).to have_content I18n.t(".devise.sessions.sign_out")
     end
   end
 end
