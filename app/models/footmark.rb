@@ -5,7 +5,7 @@ class Footmark < ActiveRecord::Base
 
   accepts_nested_attributes_for :photos, reject_if: :all_blank, allow_destroy: true
 
-  validates :league_id, :home_club_id, presence: true
+  validates :league_id, :home_club_id, :away_club_id, presence: true
 
   geocoded_by :set_address
   after_validation :geocode
@@ -13,7 +13,6 @@ class Footmark < ActiveRecord::Base
   private
 
   def set_address
-    country = self.home_club.league.country
-    "#{street} #{city} #{country}"
+    "#{street} #{city}"
   end
 end

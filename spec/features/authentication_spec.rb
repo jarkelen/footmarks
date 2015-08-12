@@ -16,7 +16,7 @@ describe "Authentication" do
 
   describe "registered users" do
     let!(:user){ create(:user, email: "test@test.nl") }
-
+#user = FactoryGirl.create(:user, role: 'team_user', company: company)
     it "shows a login option" do
       visit root_path
       expect(page).to have_content(I18n.t(".devise.sessions.sign_in"))
