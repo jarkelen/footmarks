@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'dashboard#index'
+  root 'footmarks#index'
 
   get "site/tickets"
   get "site/programmes"
