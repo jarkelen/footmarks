@@ -6,10 +6,6 @@ ready = function() {
 
   if ($("#q_home_club_league_country_eq").length > 0){
     $.conditionalize($("#q_home_club_league_country_eq"), $("#q_league_id_eq"), "data-country");
-
-    if ($("#q_home_club_id_eq").length > 0){
-      //$.conditionalize($("#q_league_id_eq"), $("#q_home_club_id_eq"), "data-league");
-    }
   }
 
 };
