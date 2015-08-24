@@ -59,10 +59,10 @@
             .col-xs-5.col-md-2= f.text_field :kickoff, class: "form-control"
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.gate')
-            .col-xs-5.col-md-2= f.text_field :gate, class: "form-control", type: :number, step: "0"
+            .col-xs-5.col-md-2= f.text_field :gate, class: "form-control", type: :number
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.ticket_price')
-            .col-xs-5.col-md-2= f.text_field :ticket_price, class: "form-control", type: :number, step: "2"
+            .col-xs-5.col-md-2= f.text_field :ticket_price, class: "form-control", type: :number
           .form-group
             .col-md-3.control-label= f.label I18n.t('.activerecord.attributes.footmark.programme_link')
             .col-md-5= f.text_field :programme_link, class: "form-control"
