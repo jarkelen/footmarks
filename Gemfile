@@ -24,6 +24,7 @@ gem 'geocoder'
 gem 'active_model_serializers'
 gem 'cancancan'
 gem 'cocoon'
+gem 'rack-timeout'
 
 group :development, :test do
   gem 'byebug'
