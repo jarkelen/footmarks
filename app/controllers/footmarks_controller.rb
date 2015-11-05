@@ -13,6 +13,7 @@ class FootmarksController < ApplicationController
     @footmarks = @q.result.includes(:home_club).includes(:away_club).order('nr DESC, visit_date DESC')
     @footmarks = @footmarks.limit(10) if params[:q].blank?
     @found = @footmarks.count unless @footmarks.blank?
+    get_home_or_away_clubs
     get_form_data
   end
 
@@ -25,6 +26,7 @@ class FootmarksController < ApplicationController
 
   def new
     @footmark = Footmark.new
+    get_all_clubs
     get_form_data
   end
 
@@ -34,6 +36,7 @@ class FootmarksController < ApplicationController
     if @footmark.save
       redirect_to footmark_path(@footmark), flash: { success: I18n.t('.footmark.messages.created') }
     else
+      get_all_clubs
       get_form_data
       render action: "new"
     end
@@ -41,6 +44,7 @@ class FootmarksController < ApplicationController
 
   def edit
     @footmark = Footmark.find(params[:id])
+    get_all_clubs
     get_form_data
   end
 
@@ -50,6 +54,7 @@ class FootmarksController < ApplicationController
     if @footmark.update_attributes(footmark_params)
       redirect_to footmark_path(@footmark), flash: { success: I18n.t('.footmark.messages.updated') }
     else
+      get_all_clubs
       get_form_data
       render action: "edit"
     end
@@ -70,9 +75,17 @@ class FootmarksController < ApplicationController
         :programme_link, :ticket_link, photos_attributes: [:id, :url, :footmark_id, :_destroy])
   end
 
-  def get_form_data
+  def get_all_clubs
+    @home_clubs = Club.order(:name)
+    @away_clubs = Club.order(:name)
+  end
+
+  def get_home_or_away_clubs
     @home_clubs = Club.where("id IN (?)", Footmark.select(:home_club_id)).order(:name)
     @away_clubs = Club.where("id IN (?)", Footmark.select(:away_club_id)).order(:name)
+  end
+
+  def get_form_data
     @seasons = Footmark.select(:season).distinct.order('season DESC')
     @countries = League.select(:country).distinct.order('country ASC')
     @leagues = League.distinct.order('country, step, name')
