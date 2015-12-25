@@ -10,7 +10,7 @@ class FootmarksController < ApplicationController
     set_filter_state(filter)
 
     @q = Footmark.search(params[:q])
-    @footmarks = @q.result.includes(:home_club).includes(:away_club).order('nr DESC, visit_date DESC')
+    @footmarks = @q.result.includes(home_club: :league).includes(:away_club).order('nr DESC, visit_date DESC')
     @footmarks = @footmarks.limit(10) if params[:q].blank?
     @found = @footmarks.count unless @footmarks.blank?
     get_home_or_away_clubs
