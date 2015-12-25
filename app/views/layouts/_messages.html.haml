@@ -1,6 +1,6 @@
 - unless flash.blank?
   .row
-    .col-sm-12
+    .col-md-8.col-md-offset-2
       - flash.each do |key, value|
         - key = "danger" if key == "notice" || key == "alert"
         = content_tag :div, value, class: "alert alert-#{key} alert-dismissable"
