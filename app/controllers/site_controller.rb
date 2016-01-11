@@ -59,7 +59,7 @@ class SiteController < ApplicationController
   end
 
   def visited_clubs
-    @clubs = Club.includes(:league, :footmarks).where("leagues.step <= 5")
+    @clubs = Club.includes(:league, :footmarks).where("league.step <= 5")
     @iterated_clubs = ClubsIterator.new(@clubs).create_iterations
   end
   
