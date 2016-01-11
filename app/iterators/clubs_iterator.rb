@@ -9,8 +9,8 @@ class ClubsIterator
     iterated_clubs = Array.new
     unless clubs.blank?
       clubs.each do |club|
-        home = club.footmarks.where(home_club_id: club.id).count
-        away = club.footmarks.where(away_club_id: club.id).count
+        home = 1#club.footmarks.where(home_club_id: club.id).count
+        away = 1#club.footmarks.where(away_club_id: club.id).count
 
         iterated_club = Array.new
         iterated_club << club.name
