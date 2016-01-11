@@ -16,3 +16,24 @@
               %i.icon-sort-by-order
             %li.active= I18n.t("site.visited_clubs.title")
 
+  .row
+    .col-sm-12
+      .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+        .box-header.sea-blue-background
+          .title
+          .actions
+            %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+              %i.icon-remove
+            %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+              %i
+        .box-content.box-no-padding
+          .responsive-table
+            %table.table
+              %tbody
+                - @iterated_clubs.each do |club_name, home, away, total|
+                  %tr
+                    %td= club_name
+                    %td= home
+                    %td= away
+                    %td= total
+
