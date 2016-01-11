@@ -52,17 +52,17 @@ class SiteController < ApplicationController
       format.json { render json: @footmarks, root: false }
     end
   end
-  
+
   def leagues_completed
     @ninetytwo = Footmark.where(countfor92: true).count
     @leagues = League.where('step IS NOT NULL AND step < 6').includes(:clubs).order("leagues.country_id, leagues.step, clubs.name")
   end
 
   def visited_clubs
-    @clubs = Club.includes(:league, :footmarks)#.where("leagues.step <= 5")
+    @clubs = Club.includes(:league).order(:name)
     @iterated_clubs = ClubsIterator.new(@clubs).create_iterations
   end
-  
+
   private
 
   def get_form_data
