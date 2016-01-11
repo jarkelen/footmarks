@@ -64,5 +64,7 @@ en:
       title:    Programmes
     leagues_completed:
       title:    Leagues completed
+    visited_clubs:
+      title:    Visited_clubs
   photo:
     add_photo:    Add photo
