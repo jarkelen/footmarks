@@ -5,7 +5,7 @@
         / page title
         %h1.pull-left
           %i.icon-check
-          %span= I18n.t("site.leagues_completed.title")
+          %span= "#{I18n.t("site.leagues_completed.title")} - #{@92}/92"
         / breadcrumbs
         .pull-right
           %ul.breadcrumb
@@ -32,8 +32,7 @@
             .responsive-table
               %table.table.clubs
                 %tbody
-                  - clubs = league.clubs.order(:name)
-                  - clubs.each do |club|
+                  - league.clubs.each do |club|
                     %tr
                       - if Footmark.where('home_club_id = ?', club.id).blank?
                         %td.not_visited{ "data-label" => I18n.t(".activerecord.attributes.club.name") }= club.name

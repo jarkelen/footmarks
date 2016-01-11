@@ -7,16 +7,18 @@ require 'spec_helper'
 require 'rspec/rails'
 require 'capybara/rspec'
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+Dir[Rails.root.join("spec/support/*.rb")].each {|f| require f}
 
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  config.include Rails.application.routes.url_helpers
   config.mock_with :rspec
   config.use_transactional_fixtures = false
   config.order = 'rand'
   config.include FactoryGirl::Syntax::Methods
   config.include SiteHelpers, type: :feature
+  
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

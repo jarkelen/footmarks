@@ -54,7 +54,8 @@ class SiteController < ApplicationController
   end
   
   def leagues_completed
-    @leagues = League.where('step IS NOT NULL AND step < 6').order(:country, :step)
+    @92 = Footmark.where(countfor92: true).count
+    @leagues = League.where('step IS NOT NULL AND step < 6').includes(:clubs).order(:country, :step)
   end
 
   private
