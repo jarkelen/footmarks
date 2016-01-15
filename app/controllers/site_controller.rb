@@ -62,6 +62,10 @@ class SiteController < ApplicationController
     @clubs = Club.includes(:league).order(:name)
     @iterated_clubs = ClubsIterator.new(@clubs).create_iterations
   end
+  
+  def stats
+    @leagues_chart = GraphBuilder.new(@survey).create_categories_spider(@categories)
+  end
 
   private
 

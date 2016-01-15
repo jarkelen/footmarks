@@ -25,6 +25,7 @@ gem 'active_model_serializers'
 gem 'cancancan'
 gem 'cocoon'
 gem 'rack-timeout'
+gem 'lazy_high_charts'
 
 group :development, :test do
   gem 'byebug'

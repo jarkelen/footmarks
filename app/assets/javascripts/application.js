@@ -12,3 +12,5 @@
 //= require charts
 //= require map
 //= require general
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more

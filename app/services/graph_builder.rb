@@ -1,3 +1,46 @@
+class GraphBuilder
+  attr_reader :survey
+
+  def initialize(survey)
+    @survey = survey
+    @height = '600'
+  end
+
+  def create_categories_spider(categories)
+    norm_scores = Array.new
+    current_scores = Array.new
+
+    categories.each do |category|
+      norm_scores << SurveyCalculator.new(@survey).get_category_score(category, "norm")
+      current_scores << SurveyCalculator.new(@survey).get_category_score(category, "current")
+    end
+
+    spider_chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(polar: true, type: 'line', height: @height)
+      f.pane(size: '80%')
+      f.colors(['#C41D21','#1c77bb'])
+      f.xAxis(
+        categories: categories.map{ |c| [@survey.id,c.id, c.name] },
+        tickmarkPlacement: 'on',
+        lineWidth: 0,
+        labels: {
+          style: {
+            fontSize: '12px',
+            weight: 'bold',
+            width: '100%'
+          },
+          formatter: %|function() {return '<a href="https://' + window.location.hostname + '/dashboards/spiders?level=2&survey_id=' + this.value[0] + '&category_id=' + this.value[1] + '">' + this.value[2] + '</a>';}|.js_code }
+        )
+      f.yAxis(gridLineInterpolation: 'polygon', lineWidth: 0, min: 0,tickInterval: 1, tickWidth: 20)
+      f.tooltip(shared: true, pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>')
+      f.series(name: "Gemiddelde van gewenste score", data: norm_scores, pointPlacement: 'on')
+      f.series(name: "Gemiddelde van huidige score", data: current_scores, pointPlacement: 'on')
+      f.legend(align: 'center', verticalAlign: 'bottom', y: 10, layout: 'vertical')
+      f.tooltip(valuePrefix: '',valueSuffix: '')
+    end
+  end
+end
+
 =begin
 
 class GraphBuilder
