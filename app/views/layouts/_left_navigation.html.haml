@@ -14,16 +14,16 @@
           = link_to footmarks_path do
             %i.icon-trophy
             %span= I18n.t('.footmark.titles.index')
-      - if can? :view, :leagues_completed
-        %li{ class: "#{'active' if current_page?(site_leagues_completed_path)}" }
-          = link_to site_leagues_completed_path do
-            %i.icon-check
-            %span= I18n.t('.site.leagues_completed.title')
       - if can? :view, :map
         %li{ class: "#{'active' if current_page?(site_map_path)}" }
           = link_to site_map_path do
             %i.icon-map-marker
             %span= I18n.t('.site.map.title')
+      - if can? :view, :leagues_completed
+        %li{ class: "#{'active' if current_page?(site_leagues_completed_path)}" }
+          = link_to site_leagues_completed_path do
+            %i.icon-check
+            %span= I18n.t('.site.leagues_completed.title')
       - if can? :view, :visited_clubs
         %li{ class: "#{'active' if current_page?(site_visited_clubs_path)}" }
           = link_to site_visited_clubs_path do
