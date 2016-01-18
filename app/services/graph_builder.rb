@@ -1,45 +1,48 @@
 class GraphBuilder
   attr_reader :survey
 
-  def initialize(survey)
-    @survey = survey
+  def initialize
     @height = '600'
   end
 
-  def create_categories_spider(categories)
-    norm_scores = Array.new
-    current_scores = Array.new
-
-    categories.each do |category|
-      norm_scores << SurveyCalculator.new(@survey).get_category_score(category, "norm")
-      current_scores << SurveyCalculator.new(@survey).get_category_score(category, "current")
+  def create_leagues_chart
+    leagues = Array.new
+    leagues << ["League", "Visits"]
+    League.all.each do |league|
+      leagues << [[league.name, footmarks.where("league_id = ?", league.id).count]
     end
 
-    spider_chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(polar: true, type: 'line', height: @height)
+    column_chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.chart(type: 'column', height: @height)
       f.pane(size: '80%')
+      f.title(text: 'Visits per league')
       f.colors(['#C41D21','#1c77bb'])
       f.xAxis(
-        categories: categories.map{ |c| [@survey.id,c.id, c.name] },
-        tickmarkPlacement: 'on',
-        lineWidth: 0,
-        labels: {
-          style: {
-            fontSize: '12px',
-            weight: 'bold',
-            width: '100%'
-          },
-          formatter: %|function() {return '<a href="https://' + window.location.hostname + '/dashboards/spiders?level=2&survey_id=' + this.value[0] + '&category_id=' + this.value[1] + '">' + this.value[2] + '</a>';}|.js_code }
-        )
-      f.yAxis(gridLineInterpolation: 'polygon', lineWidth: 0, min: 0,tickInterval: 1, tickWidth: 20)
-      f.tooltip(shared: true, pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>')
-      f.series(name: "Gemiddelde van gewenste score", data: norm_scores, pointPlacement: 'on')
-      f.series(name: "Gemiddelde van huidige score", data: current_scores, pointPlacement: 'on')
+        categories: leagues.map{ |l| [l.name] }
+      )
+      f.yAxis(
+        min: 0,
+        title: 'Number of visits'
+      )
+      f.tooltip(
+        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+        footerFormat: '</table>',
+        shared: true,
+        useHTML: true
+      )
+      f.plotOptions(
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0
+        }
+      )
+      f.series(name: "Gemiddelde van gewenste score", data: leagues, pointPlacement: 'on')
       f.legend(align: 'center', verticalAlign: 'bottom', y: 10, layout: 'vertical')
-      f.tooltip(valuePrefix: '',valueSuffix: '')
     end
   end
 end
+
 
 =begin
 

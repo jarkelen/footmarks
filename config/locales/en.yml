@@ -66,5 +66,7 @@ en:
       title:    Leagues completed
     visited_clubs:
       title:    Visited clubs
+    stats:
+      title:    Statistics
   photo:
     add_photo:    Add photo

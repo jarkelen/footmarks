@@ -64,7 +64,7 @@ class SiteController < ApplicationController
   end
   
   def stats
-    @leagues_chart = GraphBuilder.new(@survey).create_categories_spider(@categories)
+    @leagues_chart = GraphBuilder.new.create_leagues_chart(@leagues)
   end
 
   private

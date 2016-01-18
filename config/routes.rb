@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "site/map"
   get "site/leagues_completed"
   get "site/visited_clubs"
+  get "site/stats"
 
   resources :footmarks
   resources :clubs, except: [:show]

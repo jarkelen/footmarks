@@ -19,16 +19,21 @@
           = link_to site_leagues_completed_path do
             %i.icon-check
             %span= I18n.t('.site.leagues_completed.title')
-      - if can? :view, :visited_clubs
-        %li{ class: "#{'active' if current_page?(site_visited_clubs_path)}" }
-          = link_to site_visited_clubs_path do
-            %i.icon-sort-by-order
-            %span= I18n.t('.site.visited_clubs.title')
       - if can? :view, :map
         %li{ class: "#{'active' if current_page?(site_map_path)}" }
           = link_to site_map_path do
             %i.icon-map-marker
             %span= I18n.t('.site.map.title')
+      - if can? :view, :visited_clubs
+        %li{ class: "#{'active' if current_page?(site_visited_clubs_path)}" }
+          = link_to site_visited_clubs_path do
+            %i.icon-sort-by-order-alt
+            %span= I18n.t('.site.visited_clubs.title')
+      - if can? :view, :stats
+        %li{ class: "#{'active' if current_page?(site_stats_path)}" }
+          = link_to site_stats_path do
+            %i.icon-bar-chart
+            %span= I18n.t('.site.stats.title')
       - if can? :view, :tickets
         %li{ class: "#{'active' if current_page?(site_tickets_path)}" }
           = link_to site_tickets_path do
