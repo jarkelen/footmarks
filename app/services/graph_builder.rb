@@ -9,7 +9,7 @@ class GraphBuilder
     leagues = Array.new
     leagues << ["League", "Visits"]
     League.all.each do |league|
-      leagues << [[league.name, footmarks.where("league_id = ?", league.id).count]
+      leagues << [[league.name, footmarks.where("league_id = ?", league.id).count]]
     end
 
     column_chart = LazyHighCharts::HighChart.new('graph') do |f|
