@@ -55,16 +55,16 @@ class SiteController < ApplicationController
 
   def leagues_completed
     @ninetytwo = Footmark.where(countfor92: true).count
-    @leagues = League.where('step IS NOT NULL AND step < 6').includes(:clubs).order("leagues.country, leagues.step, clubs.name")
+    @leagues = League.where('step IS NOT NULL AND step < 6').includes(:clubs)
   end
 
   def visited_clubs
     @clubs = Club.includes(:league).order(:name)
     @iterated_clubs = ClubsIterator.new(@clubs).create_iterations
   end
-  
+
   def stats
-    @leagues_chart = GraphBuilder.new.create_leagues_chart(@leagues)
+    @leagues_chart = GraphBuilder.new.create_leagues_chart
   end
 
   private

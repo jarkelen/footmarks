@@ -7,37 +7,25 @@ class GraphBuilder
 
   def create_leagues_chart
     leagues = Array.new
-    leagues << ["League", "Visits"]
     League.all.each do |league|
-      leagues << [[league.name, footmarks.where("league_id = ?", league.id).count]]
+      nr_visits = league.footmarks.where("league_id = ?", league.id).count
+      if nr_visits > 0
+        leagues << [league.name, nr_visits]
+      end
     end
+    leagues.sort_by! {|item| [-item[1]] }
 
     column_chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.chart(type: 'column', height: @height)
+      f.chart({defaultSeriesType: "column"})
       f.pane(size: '80%')
-      f.title(text: 'Visits per league')
-      f.colors(['#C41D21','#1c77bb'])
+      f.colors(['#2C6700'])
       f.xAxis(
-        categories: leagues.map{ |l| [l.name] }
-      )
-      f.yAxis(
-        min: 0,
-        title: 'Number of visits'
-      )
-      f.tooltip(
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td><td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-      )
-      f.plotOptions(
-        column: {
-          pointPadding: 0.2,
-          borderWidth: 0
+        categories: leagues.map{ |l| [l[0]] },
+        labels: {
+          rotation: 65
         }
       )
-      f.series(name: "Gemiddelde van gewenste score", data: leagues, pointPlacement: 'on')
+      f.series(name: "Visits", data: leagues, pointPlacement: 'on')
       f.legend(align: 'center', verticalAlign: 'bottom', y: 10, layout: 'vertical')
     end
   end
