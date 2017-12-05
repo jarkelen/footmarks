@@ -12,4 +12,10 @@ Rails.application.routes.draw do
   resources :footmarks
   resources :clubs, except: [:show]
   resources :leagues, except: [:show]
+
+  namespace :api, defaults: {format: 'json'} do
+    resources :footmarks, only: [:index]
+  end
+
+
 end

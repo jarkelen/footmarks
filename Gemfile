@@ -1,19 +1,19 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.4.2'
 
 gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
-gem 'sass-rails', '~> 5.0'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'sass-rails'
+gem 'coffee-rails'
 gem 'bootstrap-sass'
 gem 'haml-rails'
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 gem 'jquery-rails'
 
-gem 'rails', '4.2.5.2'
+gem 'rails'
 gem 'pg'
-gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'jbuilder'
+gem 'sdoc', group: :doc
 gem 'puma'
 gem 'devise'
 gem 'ransack'
@@ -28,17 +28,11 @@ gem 'rack-timeout'
 gem 'lazy_high_charts'
 
 group :development, :test do
-  gem 'byebug'
-  gem 'web-console', '~> 2.0'
-  gem 'better_errors'
-  gem 'quiet_assets'
+  gem 'web-console'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'capybara'
-  gem 'database_cleaner', '1.0.1'
-  gem 'launchy'
+  gem 'database_cleaner'
   gem 'shoulda-matchers'
-  gem 'bullet'
 end
 
 group :production do
