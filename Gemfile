@@ -2,15 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
-gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
-gem 'sass-rails'
-gem 'coffee-rails'
-gem 'bootstrap-sass'
-gem 'haml-rails'
-gem 'uglifier'
-gem 'jquery-rails'
-
-gem 'rails'
+gem 'rails', '>= 5.1.4'
 gem 'pg'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
@@ -26,6 +18,13 @@ gem 'cancancan'
 gem 'cocoon'
 gem 'rack-timeout'
 gem 'lazy_high_charts'
+gem 'compass-rails', git: 'https://github.com/Compass/compass-rails', branch: 'master'
+gem 'sass-rails'
+gem 'coffee-rails'
+gem 'bootstrap-sass'
+gem 'haml-rails'
+gem 'uglifier'
+gem 'jquery-rails'
 
 group :development, :test do
   gem 'web-console'
