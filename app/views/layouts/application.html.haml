@@ -2,30 +2,15 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no"}
-    %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'FootMarks'}"}
+    %meta{:name => "description", :content => "FootMarks" }
 
-    %title= content_for?(:title) ? yield(:title) : I18n.t('general.site.title')
+    %title= I18n.t('general.site.title')
     = stylesheet_link_tag 'application', media: 'all'
     = csrf_meta_tags
 
-  - if current_user
-    %body.contrast-sea-blue
-      = render 'layouts/header'
-
-      #wrapper
-        #main-nav-bg
-        = render 'layouts/left_navigation'
-
-        %section#content
-          .container
-            #content-wrapper.row
-              .col-xs-12
-                = render 'layouts/messages'
-                = yield
-
-      = javascript_include_tag 'https://www.google.com/jsapi'
-      = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp'
-      = javascript_include_tag 'application'
-  - else
+  %body
     = yield
+
+    = javascript_include_tag 'https://www.google.com/jsapi'
+    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp'
     = javascript_include_tag 'application'

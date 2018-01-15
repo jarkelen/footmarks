@@ -13,11 +13,11 @@ gem 'dalli'
 gem 'geocoder'
 gem 'active_model_serializers'
 gem 'cancancan'
-gem 'cocoon'
 gem 'rack-timeout'
 gem 'haml-rails'
 gem 'uglifier'
 gem 'jquery-rails'
+gem 'sass-rails'
 
 group :production do
   gem 'rails_12factor'

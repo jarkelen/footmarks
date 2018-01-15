@@ -1,40 +1,36 @@
-- if can? :index, Footmark
-  .row
-    .col-sm-12
-      .page-header
-        / page title
-        %h1.pull-left
-          %i.icon-trophy
-          %span= I18n.t('footmark.titles.index')
-        / breadcrumbs
-        .pull-right
-          %ul.breadcrumb
-            %li
-              = link_to root_path do
-                %i.icon-dashboard
-            %li.separator
-              %i.icon-angle-right
-            %li.active= I18n.t('footmark.titles.index')
+.row
+  .col-sm-12
+    .page-header
+      / page title
+      %h1.pull-left
+        %i.icon-trophy
+        %span= I18n.t('footmark.titles.index')
+      / breadcrumbs
+      .pull-right
+        %ul.breadcrumb
+          %li
+            = link_to root_path do
+              %i.icon-dashboard
+          %li.separator
+            %i.icon-angle-right
+          %li.active= I18n.t('footmark.titles.index')
 
-  .row
-    .col-sm-12
-      = render "filter"
 
-  .row
-    .col-sm-12
-      .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
-        .box-header.sea-blue-background
-          .title
-            - if can? :create, Footmark
-              = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: 'btn'
-          .actions
-            %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
-              %i.icon-remove
-            %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
-              %i
-        .box-content.box-no-padding
-          .responsive-table
-            .scrollable-area.footmarks
-              %ol.list-group
-                - @footmarks.each do |footmark|
-                  = render "footmark", footmark: footmark
+.row
+  .col-sm-12
+    .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
+      .box-header.sea-blue-background
+        .title
+          - if can? :create, Footmark
+            = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: 'btn'
+        .actions
+          %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
+            %i.icon-remove
+          %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
+            %i
+      .box-content.box-no-padding
+        .responsive-table
+          .scrollable-area.footmarks
+            %ol.list-group
+              - @footmarks.each do |footmark|
+                = render "footmark", footmark: footmark
