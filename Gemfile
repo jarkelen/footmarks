@@ -8,8 +8,6 @@ gem 'jbuilder'
 gem 'sdoc', group: :doc
 gem 'puma'
 gem 'devise'
-gem 'ransack'
-gem 'kaminari'
 gem 'memcachier'
 gem 'dalli'
 gem 'geocoder'
@@ -25,14 +23,6 @@ gem 'bootstrap-sass'
 gem 'haml-rails'
 gem 'uglifier'
 gem 'jquery-rails'
-
-group :development, :test do
-  gem 'web-console'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'database_cleaner'
-  gem 'shoulda-matchers'
-end
 
 group :production do
   gem 'rails_12factor'
