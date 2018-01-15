@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.4.2'
+ruby '2.5.0'
 
-gem 'rails', '>= 5.1.4'
+gem 'rails', '5.2.0.beta2'
 gem 'pg'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
