@@ -2,7 +2,7 @@ class FootmarksController < ApplicationController
 
   def index
     if current_user
-      @footmarks = Footmark.limit(10).order('nr DESC, visit_date DESC')
+      @footmarks = Footmark.order('nr DESC, visit_date DESC')
       @found = @footmarks.count unless @footmarks.blank?
       get_home_or_away_clubs
       get_form_data
