@@ -9,7 +9,8 @@
     = csrf_meta_tags
 
   %body
-    = yield
+    .container
+      = yield
 
     = javascript_include_tag 'https://www.google.com/jsapi'
     = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp'

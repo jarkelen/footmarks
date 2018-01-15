@@ -1,10 +1,14 @@
 class FootmarksController < ApplicationController
 
   def index
-    @footmarks = Footmark.limit(10).order('nr DESC, visit_date DESC')
-    @found = @footmarks.count unless @footmarks.blank?
-    get_home_or_away_clubs
-    get_form_data
+    if current_user
+      @footmarks = Footmark.limit(10).order('nr DESC, visit_date DESC')
+      @found = @footmarks.count unless @footmarks.blank?
+      get_home_or_away_clubs
+      get_form_data
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def show
