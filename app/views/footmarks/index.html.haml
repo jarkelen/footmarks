@@ -1,16 +1,18 @@
 - if can? :create, Footmark
   .row.actions
-    .col-10
+    .col-2
+      %input#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
+    .col-8.footmarks_count
       = "#{@found} footmarks gevonden"
     .col-2     
       = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "btn btn-primary btn-sm"
   
 .row
   .col-sm      
-    %table.table.table-striped
+    %table.table.table-striped#footmarks
       - @footmarks.each do |footmark|
         - decorate footmark do |decorates|
-          %tr
+          %tr.footmark
             %td= link_to decorates.data_field(footmark.nr), footmark_path(footmark)
             %td= decorates.data_field(footmark.visit_date.to_date, "date")
             %td= "#{decorates.home_club} v #{decorates.away_club}"
@@ -18,3 +20,4 @@
             %td= decorates.result
             %td= decorates.data_field(footmark.gate)
             %td= decorates.data_field(League.find(footmark.league_id).name)
+            %td= decorates.data_field(League.find(footmark.league_id).country)
