@@ -14,3 +14,11 @@
 .actions {
   margin: 20px 0;
 }
+
+@media (max-width: 575.99px) {
+  td.hidden {
+    display: none;
+    font-size: 60%;
+    padding: 1px;
+  }
+}
