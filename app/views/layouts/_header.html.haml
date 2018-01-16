@@ -1,28 +1,8 @@
-%header
-  %nav.navbar.navbar-default
-    .navbar-brand= link_to root_path, I18n.t('general.site.title')
+%nav.navbar.navbar-expand-lg
+  %a.navbar-brand{:href => "#"} Footmarks
+  %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-target" => "#navbarSupportedContent", "data-toggle" => "collapse", :type => "button"}
+    %span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    %span.navbar-text= link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete
 
-    %a.toggle-nav.btn.pull-left{:href => "#"}
-      %i.icon-reorder
-    / dropdowns
-    %ul.nav
-      / user menu
-      %li.dropdown.dark.user-menu
-        - if user_signed_in?
-          %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %span.user-name= current_user.email
-            %b.caret
-          %ul.dropdown-menu
-            %li
-              %a{:href => "user_profile.html"}
-                %i.icon-user
-                Profile
-            %li
-              %a{:href => "user_profile.html"}
-                %i.icon-cog
-                Settings
-            %li.divider
-            %li
-              = link_to destroy_user_session_path, method: :delete do
-                %i.icon-signout
-                = I18n.t('devise.sessions.sign_out')
+

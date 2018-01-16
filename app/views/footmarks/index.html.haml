@@ -1,12 +1,10 @@
-.row
-  .col-sm
-    %h1= I18n.t('footmark.titles.index')
-
 - if can? :create, Footmark
-  .row.justify-content-end
+  .row.actions
+    .col-10
+      = "#{@found} footmarks gevonden"
     .col-2     
-      = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "btn btn-primary"
-
+      = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "btn btn-primary btn-sm"
+  
 .row
   .col-sm      
     %table.table.table-striped
