@@ -34,14 +34,20 @@
 }
 
 @media (max-width: 575.99px) {
-  td.hidden {
-    display: none;
-    font-size: 60%;
-    padding: 1px;
+  .table {
+    td.hidden, th.hidden {
+      display: none;
+    }
+    td, th {
+      font-size: 70%;
+      padding: 1px;
+    }
+  }
+  .actions {
+    margin: 5px 0;
   }
   .footmarks_count {
     text-align: center;
-    padding-top: 0;
   }
   
 }

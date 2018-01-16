@@ -26,7 +26,7 @@ en:
         longitude:          Longitude
         latitude:           Latitude
         result:             Result
-        match:              Wedstrijd
+        match:              Match
       league:
         name:               League
         country:            Country

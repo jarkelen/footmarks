@@ -1,5 +1,5 @@
 class Api::BaseController < ApplicationController
-  protect_from_forgery with: :null_session
+  protect_from_forgery with: :null_session, if: Proc.new { |c| c.request.format.include? 'application/json' }
   rescue_from ActiveRecord::RecordNotFound, with: :not_found
 
   before_action :destroy_session, :check_token
