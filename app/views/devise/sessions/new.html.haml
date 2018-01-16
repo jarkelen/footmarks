@@ -1,34 +1,16 @@
-%body.contrast-sea-blue.login.contrast-background
-  .middle-container
-    .middle-row
-      .middle-wrapper
-        .login-container-header
-          .container
-            .row
-              .col-sm-12
-                .authentication_title= I18n.t("general.site.title")
-        .login-container
-          .container
-            .row
-              .col-sm-4.col-sm-offset-4
-                %h1.text-center.title= t('.sign_in')
-                = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-                  = render 'layouts/messages'
-                  .form-group
-                    .controls.with-icon-over-input
-                      = f.email_field :email, autofocus: true, placeholder: "Email", "data-rule-required" => "true", class: "form-control"
-                      %i.icon-user.text-muted
-                  .form-group
-                    .controls.with-icon-over-input
-                      = f.password_field :password, autocomplete: "off", placeholder: "Password", "data-rule-required" => "true", class: "form-control"
-                      %i.icon-lock.text-muted
-                  = f.submit class: 'btn btn-block', value: I18n.t('.devise.sessions.sign_in')
-                .text-center
-                  %hr.hr-normal
-                  = render "devise/shared/links"
-        .login-container-footer
-          .container
-            .row
-              .col-sm-12
-                .copyright
-                  &copy; 2015 Dutch Addick
+.row
+  %h1.text-center.title= t('.sign_in')
+  = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+    = render 'layouts/messages'
+    .form-group
+      .controls.with-icon-over-input
+        = f.email_field :email, autofocus: true, placeholder: "Email", "data-rule-required" => "true", class: "form-control"
+        %i.icon-user.text-muted
+    .form-group
+      .controls.with-icon-over-input
+        = f.password_field :password, autocomplete: "off", placeholder: "Password", "data-rule-required" => "true", class: "form-control"
+        %i.icon-lock.text-muted
+    = f.submit class: 'btn btn-block', value: I18n.t('.devise.sessions.sign_in')
+  .text-center
+    %hr.hr-normal
+    = render "devise/shared/links"

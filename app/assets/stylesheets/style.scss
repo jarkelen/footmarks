@@ -1,11 +1,25 @@
 @import "variables.scss";
 
-.table th, .table td {
-  padding: 0.2rem 0.75rem;
-  font-size: 75%;
+.table {
+  th, td {
+    padding: 0.2rem 0.75rem;
+    font-size: 75%;
+  }
+  .thead-dark {
+    th {
+      background-color: $base-color;  
+      border-color: $base-color;
+    }
+  }
+  th.center, td.center {
+    text-align: center;
+  }
+  td a, td a:visited, td a:hover {
+    color: $base-color;
+  }
 }
 .navbar {
-  background-color: green;
+  background-color: $base-color;
 
   a, a:visited, a:hover {
     color: #FFFFFF;
@@ -14,6 +28,10 @@
 .actions {
   margin: 20px 0;
 }
+.footmarks_count {
+  text-align: right;
+  padding-top: 10px;
+}
 
 @media (max-width: 575.99px) {
   td.hidden {
@@ -21,4 +39,9 @@
     font-size: 60%;
     padding: 1px;
   }
+  .footmarks_count {
+    text-align: center;
+    padding-top: 0;
+  }
+  
 }
