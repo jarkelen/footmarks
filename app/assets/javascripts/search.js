@@ -8,7 +8,7 @@ ready = function() {
     }).show();
 
     var rows = $('#footmarks tr:visible').length - 1;
-    $('.footmarks_count').text(rows + " footmarks gevonden");
+    $('.footmarks_count').text(rows + " visits");
   });
 };
 $(document).ready(ready);

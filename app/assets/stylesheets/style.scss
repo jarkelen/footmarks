@@ -49,5 +49,13 @@
   .footmarks_count {
     text-align: center;
   }
-  
+}
+@media (max-width: 767.99px) {
+  .table {
+    td, th {
+      font-size: 70%;
+      padding: 1px;
+    }
+  }
+
 }
