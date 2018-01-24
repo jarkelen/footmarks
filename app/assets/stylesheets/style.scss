@@ -32,6 +32,13 @@
   text-align: right;
   padding-top: 10px;
 }
+.btn-outline-primary {
+  color: $base-color;
+  border-color: $base-color;
+}
+form {
+  margin-top: 20px;
+}
 
 @media (max-width: 575.99px) {
   .table {
