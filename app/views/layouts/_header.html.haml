@@ -5,6 +5,12 @@
   #navbarNavDropdown.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
     %ul.navbar-nav
+      - if can? :index, League
+        %li.nav-item= link_to I18n.t('.league.titles.index'), leagues_path, class: "nav-link"
+      - if can? :index, Club
+        %li.nav-item= link_to I18n.t('.club.titles.index'), clubs_path, class: "nav-link"
+      - if can? :view, :leagues_completed
+        %li.nav-item= link_to I18n.t('.site.visited_clubs.title'), site_visited_clubs_path, class: "nav-link"
       - if can? :create, Footmark
         %li.nav-item= link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "nav-link"
       - if current_user

@@ -1,12 +1,7 @@
 class LeaguesController < ApplicationController
 
   def index
-    filter = Array.new
-    filter << [:country_eq, :leagues_country]
-    set_filter_state(filter)
-
-    @q = League.search(params[:q])
-    @leagues = @q.result.order('country, step')
+    @leagues = League.order('country, step')
     get_form_data
   end
 

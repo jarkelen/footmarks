@@ -33,6 +33,9 @@ en:
       removed:  Footmark has been removed
   club:
     confirm:    'Are you sure? All visits of this club will be deleted also!'
+    home:       Home
+    away:       Away
+    total:      Total
     titles:
       index:    Clubs
       show:     Club details
