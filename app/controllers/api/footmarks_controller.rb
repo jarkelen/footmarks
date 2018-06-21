@@ -1,4 +1,4 @@
-class Api::FootmarksController < Api::BaseController
+class Api::FootmarksController < ApplicationController
   def index
     @footmarks = Footmark.includes(home_club: :league).includes(:away_club).order('nr DESC, visit_date DESC')
     render json: @footmarks, status: 201
@@ -16,26 +16,5 @@ class Api::FootmarksController < Api::BaseController
     end
     
     render json: @dataitem, status: 201
-  end
-
-  private def build_query
-    query = ToscaDataitem
-
-    if (params[:account_name].present?)
-      query = query.where(account_name: params[:account_name])
-    end
-
-    if (params[:testblock_name].present?)
-      query = query.where(testblock_name: params[:testblock_name])
-    end
-
-    if (params[:item_name].present?)
-      query = query.where(item_name: params[:item_name])
-    end
-    
-    if (params[:item_description].present?)
-      query = query.where(item_description: params[:item_description])
-    end
-    query.first
   end
 end
