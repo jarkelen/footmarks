@@ -1,5 +1,5 @@
 class Api::FootmarksController < ApplicationController
-  before_action :set_cors
+  skip_before_filter :verify_authenticity_token
 
   def index
     @footmarks = Footmark.includes(home_club: :league).includes(:away_club).order('nr DESC, visit_date DESC')
@@ -19,10 +19,4 @@ class Api::FootmarksController < ApplicationController
     
     render json: @dataitem, status: 201
   end
-
-  def set_cors
-    headers['Access-Control-Allow-Origin'] = '*'
-    headers['Access-Control-Request-Method'] = '*'
-  end
-
 end
