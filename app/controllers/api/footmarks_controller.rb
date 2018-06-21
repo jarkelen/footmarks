@@ -1,5 +1,4 @@
 class Api::FootmarksController < ApplicationController
-  skip_before_filter :verify_authenticity_token
 
   def index
     @footmarks = Footmark.includes(home_club: :league).includes(:away_club).order('nr DESC, visit_date DESC')
