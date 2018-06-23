@@ -33,6 +33,11 @@ module Footmarks
         origins /\Ahttp:\/\/localhost:\d+\z/
         resource '*', headers: :any, methods: :any
       end
+
+      allow do
+        origins /\Ahttps:\/\/firebaseapp\d+\z/
+        resource '*', headers: :any, methods: :any
+      end
     end
   end
 end
