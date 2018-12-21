@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '5.2.0.beta2'
+gem 'rails', '5.2.2'
 gem 'pg'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
