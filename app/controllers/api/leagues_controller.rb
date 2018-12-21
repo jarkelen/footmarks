@@ -25,6 +25,7 @@ class Api::LeaguesController < Api::BaseController
     end
   end
 
+  # test
   def destroy
     @league.destroy
   end
