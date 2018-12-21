@@ -1,4 +1,4 @@
-class CreateFootmarks < ActiveRecord::Migration
+class CreateFootmarks < ActiveRecord::Migration[5.2]
   def change
     create_table :footmarks do |t|
       t.integer :nr

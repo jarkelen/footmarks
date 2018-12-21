@@ -1,4 +1,4 @@
-class CreateClubs < ActiveRecord::Migration
+class CreateClubs < ActiveRecord::Migration[5.2]
   def change
     create_table :clubs do |t|
       t.integer :league_id
