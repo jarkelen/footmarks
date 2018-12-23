@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "clubs", force: :cascade do |t|
+  create_table "clubs", id: :serial, force: :cascade do |t|
     t.integer "league_id"
     t.string "name"
     t.datetime "created_at", null: false
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.index ["league_id"], name: "index_clubs_on_league_id"
   end
 
-  create_table "footmarks", force: :cascade do |t|
+  create_table "footmarks", id: :serial, force: :cascade do |t|
     t.integer "nr"
     t.date "visit_date"
     t.string "ground"
@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.index ["nr"], name: "index_footmarks_on_nr", unique: true
   end
 
-  create_table "leagues", force: :cascade do |t|
+  create_table "leagues", id: :serial, force: :cascade do |t|
     t.string "country"
     t.string "name"
     t.integer "step"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.index ["step"], name: "index_leagues_on_step"
   end
 
-  create_table "photos", force: :cascade do |t|
+  create_table "photos", id: :serial, force: :cascade do |t|
     t.string "url"
     t.string "footmark_id"
     t.datetime "created_at", null: false
@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.index ["footmark_id"], name: "index_photos_on_footmark_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
