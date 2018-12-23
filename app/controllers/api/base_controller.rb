@@ -11,7 +11,7 @@ class Api::BaseController < ApplicationController
   private def check_token
     if params[:api_token].blank?
       render json: "Provide an API token".to_json, status: :unprocessable_entity
-    elsif params[:api_token] != ENV['API_KEY']
+    elsif params[:api_token] != "footmarks-46326329466929"
       render json: "API token not correct".to_json, status: :unprocessable_entity
     end
   end
