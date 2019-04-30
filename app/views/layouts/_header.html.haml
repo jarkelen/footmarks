@@ -15,3 +15,15 @@
         %li.nav-item= link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "nav-link"
       - if current_user
         %li.nav-item= link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete, class: "nav-link"
+      
+      %li.nav-item.dropdown
+        %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+          Maintenance
+        .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+          = link_to I18n.t('.league.titles.index'), leagues_path, class: "dropdown-item"
+          %a.dropdown-item{:href => "#"} Action
+          %a.dropdown-item{:href => "#"} Another action
+          .dropdown-divider
+          %a.dropdown-item{:href => "#"} Something else here
+
+
