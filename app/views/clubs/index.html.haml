@@ -22,7 +22,7 @@
           - @clubs.each do |club|
             - decorate club do |decorates|
               %tr.item
-                %td= decorates.flag(club.league.country) unless club.league.blank?
+                %td= decorates.data_field(club.league.country) unless club.league.blank?
                 %td= decorates.data_field(club.league.name) unless club.league.blank?
                 %td= decorates.data_field(club.name)
                 %td

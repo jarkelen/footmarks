@@ -2,7 +2,6 @@ class ClubsController < ApplicationController
 
   def index
     @clubs = Club.includes(:league).order('league_id, name')
-    @clubs = @clubs.limit(25) if params[:q].blank?
     @found = @clubs.count unless @clubs.blank?
     get_form_data
   end

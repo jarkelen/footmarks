@@ -11,7 +11,7 @@
 
   .row
     .col-sm-12
-      %table.table
+      %table.table#search_items
         %thead.thead-dark
           %tr
             %th= I18n.t('.activerecord.attributes.league.country')
@@ -21,8 +21,8 @@
         %tbody
           - @leagues.each do |league|
             - decorate league do |decorates|
-              %tr
-                %td= decorates.flag(league.country)
+              %tr.item
+                %td= decorates.data_field(league.country)
                 %td= decorates.data_field(league.name)
                 %td= decorates.data_field(league.step)
                 %td
