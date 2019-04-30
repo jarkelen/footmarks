@@ -1,12 +1,12 @@
 .row.actions
   .col-sm.col-md-3
     %input.form-control#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
-  .col-sm.col-md-9.footmarks_count
+  .col-sm.col-md-9.count
     = "#{@found} visits"
   
 .row
   .col-sm      
-    %table.table#footmarks
+    %table.table#search_items
       %thead.thead-dark
         %tr
           %th.center= I18n.t('.activerecord.attributes.footmark.nr')
@@ -20,7 +20,7 @@
       %tbody
         - @footmarks.each do |footmark|
           - decorate footmark do |decorates|
-            %tr.footmark
+            %tr.item
               %td.center= link_to decorates.data_field(footmark.nr), footmark_path(footmark)
               %td.center= decorates.data_field(footmark.visit_date.to_date, "date")
               %td= "#{decorates.home_club} v #{decorates.away_club}"

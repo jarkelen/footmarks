@@ -28,7 +28,7 @@
 .actions {
   margin: 20px 0;
 }
-.footmarks_count {
+.count {
   text-align: right;
   padding-top: 10px;
 }
@@ -38,6 +38,12 @@
 }
 form {
   margin-top: 20px;
+}
+.page-header {
+  margin: 20px 10px;
+  font-size: 36px;
+  color: $base-color;
+  font-weight: bold;
 }
 
 @media (max-width: 575.99px) {

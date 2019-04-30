@@ -1,57 +1,32 @@
 - if can? :index, League
   .row
     .col-sm-12
-      .page-header
-        / page title
-        %h1.pull-left
-          %i.icon-th
-          %span= I18n.t('league.titles.index')
-        / breadcrumbs
-        .pull-right
-          %ul.breadcrumb
-            %li
-              = link_to root_path do
-                %i.icon-dashboard
-            %li.separator
-              %i.icon-angle-right
-            %li.active= I18n.t('league.titles.index')
+      .page-header= I18n.t('league.titles.index')
+
+  .row.actions
+    .col-sm.col-md-3
+      %input.form-control#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
+    .col-sm.col-md-9.count
+      = "#{@found} leagues"
 
   .row
     .col-sm-12
-      //= render "filter"
-
-  .row
-    .col-sm-12
-      .box.bordered-box.sea-blue-border{:style => "margin-bottom:0;"}
-        .box-header.sea-blue-background
-          .title
-            - if can? :create, League
-              = link_to I18n.t('.league.titles.new'), new_league_path, class: 'btn'
-          .actions
-            %a.btn.box-remove.btn-xs.btn-link{:href => "#"}
-              %i.icon-remove
-            %a.btn.box-collapse.btn-xs.btn-link{:href => "#"}
-              %i
-        .box-content.box-no-padding
-          .responsive-table
-            .scrollable-area.leagues
-              %ol.list-group
-                %table.table
-                  %thead
-                    %tr
-                      %th= I18n.t('.activerecord.attributes.league.country')
-                      %th= I18n.t('.activerecord.attributes.league.name')
-                      %th= I18n.t('.activerecord.attributes.league.step')
-                      %th
-                  %tbody
-                    - @leagues.each do |league|
-                      - decorate league do |decorates|
-                        %tr
-                          %td= decorates.flag(league.country)
-                          %td= decorates.data_field(league.name)
-                          %td= decorates.data_field(league.step)
-                          %td
-                            - if can? :edit, League
-                              = link_to I18n.t('.general.form.edit'), edit_league_path(league), class: "btn btn-default"
-                            - if can? :destroy, League
-                              = link_to I18n.t('.general.form.delete'), league_path(league), method: :delete, data: { confirm: I18n.t('.league.confirm') }, class: "btn btn-danger"
+      %table.table
+        %thead.thead-dark
+          %tr
+            %th= I18n.t('.activerecord.attributes.league.country')
+            %th= I18n.t('.activerecord.attributes.league.name')
+            %th= I18n.t('.activerecord.attributes.league.step')
+            %th
+        %tbody
+          - @leagues.each do |league|
+            - decorate league do |decorates|
+              %tr
+                %td= decorates.flag(league.country)
+                %td= decorates.data_field(league.name)
+                %td= decorates.data_field(league.step)
+                %td
+                  - if can? :edit, League
+                    = link_to I18n.t('.general.form.edit'), edit_league_path(league), class: "btn btn-outline-primary btn-sm"
+                  - if can? :destroy, League
+                    = link_to I18n.t('.general.form.delete'), league_path(league), method: :delete, data: { confirm: I18n.t('.league.confirm') }, class: "btn btn-outline-danger btn-sm"

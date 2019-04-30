@@ -1,4 +1,8 @@
 - if can? :create, Footmark
   .row
-    .col-sm.col-md-6
+    .col-sm-12
+      .page-header= I18n.t('footmark.titles.new')
+
+  .row
+    .col-sm-12.col-md-6.offset-md-3
       = render "form"

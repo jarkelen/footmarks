@@ -1,7 +1,7 @@
 - if can? :view, :leagues_completed
-  .row.justify-content-left
-    .col-sm
-      %h4= I18n.t("site.visited_clubs.title")
+  .row
+    .col-sm-12
+      .page-header= I18n.t("site.visited_clubs.title")
 
   .row.actions
     .col-sm.col-md-3
@@ -10,7 +10,7 @@
   .row
     .col-sm
       %table.table#footmarks
-        %thead
+        %thead.thead-dark
           %tr
             %th= I18n.t(".activerecord.attributes.club.name")
             %th= I18n.t(".club.home")
