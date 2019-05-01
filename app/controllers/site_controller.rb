@@ -18,11 +18,9 @@ class SiteController < ApplicationController
     @footmarks = Footmark.includes(:home_club).includes(:away_club).order('nr DESC, visit_date DESC')
     @found = @footmarks.count unless @footmarks.blank?
 
-    get_form_data
-
     respond_to do |format|
       format.html
-      format.json { render json: @footmarks, root: false }
+      format.json { render json: @footmarks, each_serializer: FootmarkSerializer, root: false }
     end
   end
 

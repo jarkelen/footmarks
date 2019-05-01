@@ -9,40 +9,21 @@ $(document).ready(function() {
       attributionControl: true
     }).addTo(mymap);
 
-    var marker = L.marker([51.5, -0.09]).addTo(mymap);
-    marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
-
-    /*
-
-
-    // initializing map
-
     $.getJSON( 'map.json', function(data) {
       $.each(data, function(index) {
-        if (data[index].longitude != ""){
+        if (data[index].longitude != null && data[index].latitude != null){
           var contentString = '<div class="marker_content">'+
-            '<p>'+data[index].visit_date+'</p>'+
-            '<h5 class="header">'+data[index].home_club.name+' v '+data[index].away_club.name+'</h5>'+
+            '<div class="visit_date">'+data[index].visit_date+'</div>'+
+            '<div class="ground">'+data[index].ground+'</div>'+
+            '<div class="match">' + data[index].home + ' v ' + data[index].away + '</div>'+
             '<div class="link"><a href="/footmarks/'+data[index].id+'">details</a></div>'
             '</div>';
 
-          var infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
-
-          var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(data[index].latitude,data[index].longitude),
-            map: map,
-            animation: google.maps.Animation.DROP,
-            icon: image
-          });
-          google.maps.event.addListener(marker, 'click', function() {
-            infowindow.open(map,marker);
-          });
+          var marker = L.marker(L.latLng(parseFloat(data[index].latitude), parseFloat(data[index].longitude))).addTo(mymap);
+          marker.bindPopup(contentString);
         }
       });
     });
-    */
 
   }
 });
