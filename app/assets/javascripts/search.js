@@ -8,7 +8,7 @@ ready = function() {
     }).show();
 
     var rows = $('#search_items tr:visible').length - 1;
-    $('.search_count').text(rows + " visits");
+    $('.counter').text(rows);
   });
 };
 $(document).ready(ready);

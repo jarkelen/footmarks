@@ -2,7 +2,8 @@
   .col-sm.col-md-3
     %input.form-control#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
   .col-sm.col-md-9.count
-    = "#{@found} visits"
+    %span.counter= @found
+    %span= "visits"
   
 .row
   .col-sm      

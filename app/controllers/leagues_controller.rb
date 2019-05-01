@@ -2,6 +2,7 @@ class LeaguesController < ApplicationController
 
   def index
     @leagues = League.order('country, step')
+    @found = @leagues.count
     get_form_data
   end
 

@@ -32,6 +32,7 @@ class SiteController < ApplicationController
   def visited_clubs
     @clubs = Club.includes(:league).order(:name)
     @iterated_clubs = ClubsIterator.new(@clubs).create_iterations
+    @found = @iterated_clubs.count
   end
 
   def stats

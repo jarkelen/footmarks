@@ -7,7 +7,8 @@
     .col-sm.col-md-3
       %input.form-control#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
     .col-sm.col-md-9.count
-      = "#{@found} clubs"
+      %span.counter= @found
+      %span= "clubs"
 
   .row
     .col-sm-12
