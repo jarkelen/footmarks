@@ -18,6 +18,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'bootstrap', '~> 4.0.0.beta3'
 gem 'rack-cors', require: 'rack/cors'
+gem 'geocoder'
 
 group :production do
   gem 'rails_12factor'

@@ -77,6 +77,7 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.25)
+    geocoder (1.5.1)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     haml (5.0.4)
@@ -211,6 +212,7 @@ DEPENDENCIES
   cancancan
   dalli
   devise!
+  geocoder
   haml-rails
   jbuilder
   jquery-rails
