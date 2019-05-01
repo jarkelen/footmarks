@@ -37,3 +37,4 @@ class Api::ClubsController < Api::BaseController
     def club_params
       params.require(:club).permit(:name, :league_id)
     end
+end
