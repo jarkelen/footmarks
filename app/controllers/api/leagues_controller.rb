@@ -38,3 +38,4 @@ class Api::LeaguesController < Api::BaseController
     def league_params
       params.require(:league).permit(:country, :name, :step)
     end
+  end
