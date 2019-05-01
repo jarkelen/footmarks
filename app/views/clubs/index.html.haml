@@ -15,16 +15,16 @@
       %table.table#search_items
         %thead.thead-dark
           %tr
-            %th= I18n.t('.activerecord.attributes.league.country')
-            %th= I18n.t('.activerecord.attributes.club.league_id')
+            %th.hidden= I18n.t('.activerecord.attributes.league.country')
+            %th.hidden= I18n.t('.activerecord.attributes.club.league_id')
             %th= I18n.t('.activerecord.attributes.club.name')
             %th
         %tbody
           - @clubs.each do |club|
             - decorate club do |decorates|
               %tr.item
-                %td= decorates.data_field(club.league.country) unless club.league.blank?
-                %td= decorates.data_field(club.league.name) unless club.league.blank?
+                %td.hidden= decorates.data_field(club.league.country) unless club.league.blank?
+                %td.hidden= decorates.data_field(club.league.name) unless club.league.blank?
                 %td= decorates.data_field(club.name)
                 %td
                   - if can? :edit, Club

@@ -17,7 +17,7 @@
           %tr
             %th= I18n.t('.activerecord.attributes.league.country')
             %th= I18n.t('.activerecord.attributes.league.name')
-            %th= I18n.t('.activerecord.attributes.league.step')
+            %th.hidden= I18n.t('.activerecord.attributes.league.step')
             %th
         %tbody
           - @leagues.each do |league|
@@ -25,7 +25,7 @@
               %tr.item
                 %td= decorates.data_field(league.country)
                 %td= decorates.data_field(league.name)
-                %td= decorates.data_field(league.step)
+                %td.hidden= decorates.data_field(league.step)
                 %td
                   - if can? :edit, League
                     = link_to I18n.t('.general.form.edit'), edit_league_path(league), class: "btn btn-outline-primary btn-sm"
