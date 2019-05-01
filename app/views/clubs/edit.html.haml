@@ -1,23 +1,7 @@
 - if can? :edit, Club
   .row
     .col-sm-12
-      .page-header
-        / page title
-        %h1.pull-left
-          %i.icon-th
-          %span= I18n.t("club.titles.edit")
-        / breadcrumbs
-        .pull-right
-          %ul.breadcrumb
-            %li
-              = link_to root_path do
-                %i.icon-dashboard
-            %li.separator
-              %i.icon-angle-right
-            %li= link_to I18n.t('footmark.titles.index'), clubs_path
-            %li.separator
-              %i.icon-angle-right
-            %li.active= I18n.t("club.titles.edit")
+      .page-header= I18n.t("club.titles.edit")
 
   .row
     .col-sm-12

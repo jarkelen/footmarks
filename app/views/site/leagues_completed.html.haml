@@ -1,20 +1,7 @@
 - if can? :view, :leagues_completed
   .row
     .col-sm-12
-      .page-header
-        / page title
-        %h1.pull-left
-          %i.icon-check
-          %span= "#{I18n.t("site.leagues_completed.title")} - #{@ninetytwo}/92"
-        / breadcrumbs
-        .pull-right
-          %ul.breadcrumb
-            %li
-              = link_to root_path do
-                %i.icon-dashboard
-            %li.separator
-              %i.icon-angle-right
-            %li.active= I18n.t("site.leagues_completed.title")
+      .page-header= "#{I18n.t("site.leagues_completed.title")} - #{@ninetytwo}/92"
 
   .row
     - @leagues.each do |league|
