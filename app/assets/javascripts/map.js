@@ -1,29 +1,21 @@
 $(document).ready(function() {
   if ($("#mapid").length > 0){
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([54.666710, -2.754990], 6);
 
-    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+    L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiamFya2VsZW4iLCJhIjoiY2p2NHZoY3d4MWcwbDRlcDlxODFsNzYwNSJ9.FSMxUuQ5EvR_e0c7vnrvoQ', {
       maxZoom: 18,
-      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-        '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-        'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      id: 'mapbox.streets'
+      id: 'mapbox.streets',
+      zoomControl: true,
+      attributionControl: true
     }).addTo(mymap);
 
+    var marker = L.marker([51.5, -0.09]).addTo(mymap);
+    marker.bindPopup("<b>Hello world!</b><br>I am a popup.");
+
     /*
-    var mapOptions = {
-      center: new google.maps.LatLng(54.8949509,-2.9116577),
-      zoom: 6,
-      mapTypeId: google.maps.MapTypeId.NORMAL,
-      panControl: true,
-      scaleControl: false,
-      streetViewControl: true,
-      overviewMapControl: true
-    };
+
 
     // initializing map
-    var map = new google.maps.Map(document.getElementById("map-canvas"),mapOptions);
-    var image = 'https://dl.dropboxusercontent.com/u/45762137/Football/football-icon.png'
 
     $.getJSON( 'map.json', function(data) {
       $.each(data, function(index) {
