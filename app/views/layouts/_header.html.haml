@@ -7,25 +7,21 @@
     %ul.navbar-nav
       - if can? :view, :map
         %li.nav-item= link_to I18n.t("site.map.title"), site_map_path, class: "nav-link"
-      - if can? :index, League
-        %li.nav-item= link_to I18n.t('.league.titles.index'), leagues_path, class: "nav-link"
-      - if can? :index, Club
-        %li.nav-item= link_to I18n.t('.club.titles.index'), clubs_path, class: "nav-link"
       - if can? :view, :leagues_completed
         %li.nav-item= link_to I18n.t('.site.visited_clubs.title'), site_visited_clubs_path, class: "nav-link"
-      - if can? :create, Footmark
-        %li.nav-item= link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "nav-link"
-      - if current_user
-        %li.nav-item= link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete, class: "nav-link"
       
       %li.nav-item.dropdown
         %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
           Maintenance
         .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-          = link_to I18n.t('.league.titles.index'), leagues_path, class: "dropdown-item"
-          %a.dropdown-item{:href => "#"} Action
-          %a.dropdown-item{:href => "#"} Another action
-          .dropdown-divider
-          %a.dropdown-item{:href => "#"} Something else here
+          - if can? :create, Footmark
+            = link_to I18n.t('.footmark.titles.new'), new_footmark_path, class: "dropdown-item"
+          - if can? :index, League
+            = link_to I18n.t('.league.titles.index'), leagues_path, class: "dropdown-item"
+          - if can? :index, Club
+            = link_to I18n.t('.club.titles.index'), clubs_path, class: "dropdown-item"
+
+      - if current_user
+        %li.nav-item= link_to I18n.t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete, class: "nav-link"
 
 

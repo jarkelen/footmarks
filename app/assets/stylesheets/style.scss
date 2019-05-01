@@ -21,8 +21,9 @@
 .navbar {
   background-color: $base-color;
 
-  a, a:visited, a:hover {
+  .dropdown-item:hover {
     color: #FFFFFF;
+    background-color: $base-color;
   }
 }
 .actions {
@@ -31,11 +32,28 @@
 .count {
   text-align: right;
   padding-top: 10px;
+  font-size: 24px;
+  font-weight: bold;
 }
 .btn-outline-primary {
   color: $base-color;
   border-color: $base-color;
 }
+.btn-outline-primary:hover {
+  background-color: $base-color;
+  border-color: $base-color;
+  color: #FFFFFF !important;
+}
+.btn-outline-danger {
+  color: #dc3545 !important;
+}
+.btn-outline-danger:hover {
+  color: #FFFFFF !important;
+}
+.btn-sm {
+  padding: 0px 5px;
+}
+
 form {
   margin-top: 20px;
 }
