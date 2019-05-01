@@ -1,0 +1,33 @@
+- if can? :view, :the92
+  .row.actions
+    .col-sm.col-md-3
+      %input.form-control#search{ type: "text", placeholder: "- snel zoeken -", autofocus: :true }
+    .col-sm.col-md-9.count
+      %span.counter= @found
+      %span= "visits"
+    
+  .row
+    .col-sm      
+      %table.table#search_items
+        %thead.thead-dark
+          %tr
+            %th.center= I18n.t('.activerecord.attributes.footmark.nr')
+            %th.center= I18n.t('.activerecord.attributes.footmark.visit_date')
+            %th= I18n.t('.activerecord.attributes.footmark.match')
+            %th.hidden= I18n.t('.activerecord.attributes.footmark.ground')
+            %th.hidden.center= I18n.t('.activerecord.attributes.footmark.result')
+            %th.hidden.center= I18n.t('.activerecord.attributes.footmark.gate')
+            %th.hidden= I18n.t('.activerecord.attributes.league.name')
+            %th.hidden= I18n.t('.activerecord.attributes.league.country')
+        %tbody
+          - @footmarks.each do |footmark|
+            - decorate footmark do |decorates|
+              %tr.item
+                %td.center= link_to decorates.data_field(footmark.nr), footmark_path(footmark)
+                %td.center= decorates.data_field(footmark.visit_date.to_date, "date")
+                %td= "#{decorates.home_club} v #{decorates.away_club}"
+                %td.hidden= decorates.data_field(footmark.ground)
+                %td.hidden.center= decorates.result
+                %td.hidden.center= decorates.data_field(footmark.gate)
+                %td.hidden= decorates.data_field(League.find(footmark.league_id).name)
+                %td.hidden= decorates.data_field(League.find(footmark.league_id).country)

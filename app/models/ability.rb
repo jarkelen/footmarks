@@ -17,6 +17,7 @@ class Ability
         can [:view], :programmes
         can [:view], :leagues_completed
         can [:view], :stats
+        can [:view], :the92
 
         cannot [:create, :edit, :destroy], Club
         cannot [:create, :edit, :destroy], League

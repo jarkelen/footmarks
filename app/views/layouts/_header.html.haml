@@ -7,6 +7,8 @@
     %ul.navbar-nav
       - if can? :view, :map
         %li.nav-item= link_to I18n.t("site.map.title"), site_map_path, class: "nav-link"
+      - if can? :view, :the92
+        %li.nav-item= link_to I18n.t("site.the92.title"), site_the92_path, class: "nav-link"
       - if can? :view, :leagues_completed
         %li.nav-item= link_to I18n.t('.site.visited_clubs.title'), site_visited_clubs_path, class: "nav-link"
       
