@@ -16,6 +16,8 @@ class FootmarksController < ApplicationController
     @visited_league = League.find(@footmark.league_id)
     @current_league = League.find(@footmark.home_club.league.id)
     @photos = ImageBuilder.new(@footmark).get_photos
+    @ticket = ImageBuilder.new(@footmark).get_ticket
+    @programme = ImageBuilder.new(@footmark).get_programme
   end
 
   def new
