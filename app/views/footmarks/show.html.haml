@@ -1,7 +1,9 @@
 - if can? :show, Footmark
   - decorate @footmark do |decorates|
-    .row.justify-content-end.actions
-      .col-sm.col-md-2
+    .row.actions
+      .col-sm-12.col-md-10
+        .page-header= "#{@footmark.home_club.name} v #{@footmark.away_club.name}"
+      .col-sm-12.col-md-2
         - if can? :edit, Footmark
           = link_to I18n.t('.general.form.edit'), edit_footmark_path(@footmark), class: "btn btn-outline-primary btn-sm"
         - if can? :destroy, Footmark
@@ -44,4 +46,9 @@
             %td= I18n.t('.activerecord.attributes.footmark.ticket_price')
             %td= decorates.data_field(@footmark.ticket_price, "amount")
 
-    = render "photos", footmark: @footmark
+    - unless @photos.blank?
+      .gallery
+        .row
+          - @photos.each do |photo|
+            .col-sm-12.col-md-4
+              .photo= image_tag(photo)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2015_08_09_103306) do
+ActiveRecord::Schema.define(version: 2019_05_02_095547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,12 +39,13 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.integer "home_club_id", null: false
     t.integer "away_club_id", null: false
     t.integer "league_id"
-    t.string "programme_link"
-    t.string "ticket_link"
     t.float "latitude"
     t.float "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "has_photos", default: false
+    t.boolean "has_programme", default: false
+    t.boolean "has_ticket", default: false
     t.index ["away_club_id"], name: "index_footmarks_on_away_club_id"
     t.index ["home_club_id"], name: "index_footmarks_on_home_club_id"
     t.index ["league_id"], name: "index_footmarks_on_league_id"
@@ -59,14 +60,6 @@ ActiveRecord::Schema.define(version: 2015_08_09_103306) do
     t.datetime "updated_at", null: false
     t.index ["country"], name: "index_leagues_on_country"
     t.index ["step"], name: "index_leagues_on_step"
-  end
-
-  create_table "photos", id: :serial, force: :cascade do |t|
-    t.string "url"
-    t.string "footmark_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["footmark_id"], name: "index_photos_on_footmark_id"
   end
 
   create_table "users", id: :serial, force: :cascade do |t|

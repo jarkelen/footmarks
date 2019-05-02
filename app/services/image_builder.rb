@@ -7,15 +7,17 @@ class ImageBuilder
 
   def get_photos
     photos = Array.new
-    photos << "https://footmarks.blob.core.windows.net/fm-photos/littlehamptontown_v_east_preston_170_1.jpg"
-    photos << "https://footmarks.blob.core.windows.net/fm-photos/littlehamptontown_v_east_preston_170_1.jpg"
-    photos << "https://footmarks.blob.core.windows.net/fm-photos/littlehamptontown_v_east_preston_170_1.jpg"
-    photos << "https://footmarks.blob.core.windows.net/fm-photos/littlehamptontown_v_east_preston_170_1.jpg"
-    photos << "https://footmarks.blob.core.windows.net/fm-photos/littlehamptontown_v_east_preston_170_1.jpg"
+
+    if @footmark.has_photos
+      counter = 1
+      while counter <= 6
+        home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","")
+        away = Club.find(@footmark.away_club_id).name.downcase.gsub(" ","")
+        photos << "https://footmarks.blob.core.windows.net/fm-photos/#{home}_v_#{away}_#{@footmark.nr}_#{counter}.jpg"
+        counter += 1
+      end
+    end
+    
     photos
-    #url = URI.parse("http://www.google.com/")
-    #req = Net::HTTP.new(url.host, url.port)
-    #res = req.request_head(url.path)
-    #do_something_with_it(url) if res.code == "200"
   end
 end
