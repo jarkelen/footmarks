@@ -20,13 +20,14 @@ en:
         gate:               Gate
         ticket_price:       Ticket price
         countfor92:         Count for 92
-        programme_link:     Link to programme
-        ticket_link:        Link to ticket
         longitude:          Longitude
         latitude:           Latitude
         result:             Result
         match:              Match
         address:            Address
+        has_photos:         Photos uploaded
+        has_programme:      Programme uploaded
+        has_ticket:         Ticket uploaded
       league:
         name:               League
         country:            Country
@@ -34,11 +35,6 @@ en:
       club:
         name:               Club
         league_id:          League
-      photo:
-        url:                URL
-
-
-
 
   date:
     abbr_day_names:

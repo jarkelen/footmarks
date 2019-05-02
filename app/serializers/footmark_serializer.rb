@@ -1,5 +1,5 @@
 class FootmarkSerializer < ActiveModel::Serializer
-  attributes :id, :nr, :visit_date, :ground, :street, :city, :home, :away, :league, :step, :country, :goals_home, :goals_away, :season, :kickoff, :gate, :ticket_price, :programme_link, :ticket_link, :longitude, :latitude
+  attributes :id, :nr, :visit_date, :ground, :street, :city, :home, :away, :league, :step, :country, :goals_home, :goals_away, :season, :kickoff, :gate, :ticket_price, :longitude, :latitude
 
   def visit_date
     object.visit_date.strftime("%d-%m-%Y")
