@@ -8,7 +8,7 @@
           = link_to I18n.t('.general.form.delete'), footmark_path(@footmark), method: :delete, class: "btn btn-outline-danger btn-sm"
 
     .row
-      .col-sm
+      .col-sm-12
         %table.table
           %tr
             %td= I18n.t('.activerecord.attributes.footmark.match')
@@ -43,3 +43,5 @@
           %tr
             %td= I18n.t('.activerecord.attributes.footmark.ticket_price')
             %td= decorates.data_field(@footmark.ticket_price, "amount")
+
+    = render "photos", footmark: @footmark

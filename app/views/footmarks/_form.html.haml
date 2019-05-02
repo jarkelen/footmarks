@@ -45,11 +45,5 @@
     = f.label I18n.t('.activerecord.attributes.footmark.ticket_price')
     = f.text_field :ticket_price, class: "form-control", type: :number
   .form-group
-    = f.label I18n.t('.activerecord.attributes.footmark.programme_link')
-    = f.text_field :programme_link, class: "form-control"
-  .form-group
-    = f.label I18n.t('.activerecord.attributes.footmark.ticket_link')
-    = f.text_field :ticket_link, class: "form-control"
-  .form-group
     = f.submit(class: 'btn btn-outline-primary', value: I18n.t('.general.form.save'))
     = link_to I18n.t('.general.form.cancel'), footmarks_path, class: 'btn btn-outline-danger'
