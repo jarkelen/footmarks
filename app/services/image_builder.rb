@@ -12,8 +12,7 @@ class ImageBuilder
       counter = 1
       while counter <= 6
         home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","")
-        away = Club.find(@footmark.away_club_id).name.downcase.gsub(" ","")
-        photos << "https://footmarks.blob.core.windows.net/fm-photos/#{home}_v_#{away}_#{@footmark.nr}_#{counter}.jpg"
+        photos << "https://footmarks.blob.core.windows.net/fm-photos/#{home}_#{@footmark.nr}_#{counter}.jpg"
         counter += 1
       end
     end
