@@ -8,6 +8,12 @@ ready = function() {
     $.conditionalize($("#q_home_club_league_country_eq"), $("#q_league_id_eq"), "data-country");
   }
 
+  $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+    event.preventDefault();
+    $(this).ekkoLightbox();
+  });
+
+
 };
 $(document).ready(ready);
 $(document).on('page:load', ready);
