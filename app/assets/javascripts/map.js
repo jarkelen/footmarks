@@ -14,8 +14,8 @@ $(document).ready(function() {
         if (data[index].longitude != null && data[index].latitude != null){
           var contentString = '<div class="marker_content">'+
             '<div class="visit_date">'+data[index].visit_date+'</div>'+
-            '<div class="ground">'+data[index].ground+'</div>'+
             '<div class="match">' + data[index].home + ' v ' + data[index].away + '</div>'+
+            '<div class="ground">'+data[index].ground+'</div>'+
             '<div class="link"><a href="/footmarks/'+data[index].id+'">details</a></div>'
             '</div>';
 
