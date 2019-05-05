@@ -8,4 +8,4 @@
       - if footmark.has_ticket?
         .col-sm-12.col-md-3.ticket
           = link_to footmark_path(footmark) do
-            = image_tage(ImageBuilder.new(footmark).get_ticket)
+            = image_tag(ImageBuilder.new(footmark).get_ticket)
