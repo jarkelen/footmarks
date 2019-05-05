@@ -22,7 +22,7 @@ class ImageBuilder
   def get_ticket
     ticket = nil
     if @footmark.has_ticket
-      home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","")
+      home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","").gsub("'","")
       ticket = "https://footmarks.blob.core.windows.net/fm-tickets/#{home}_#{@footmark.nr}.jpg"
     end
     ticket
@@ -31,7 +31,7 @@ class ImageBuilder
   def get_programme
     programme = nil
     if @footmark.has_programme
-      home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","")
+      home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","").gsub("'","")
       programme = "https://footmarks.blob.core.windows.net/fm-programmes/#{home}_#{@footmark.nr}.jpg"
     end
     programme
