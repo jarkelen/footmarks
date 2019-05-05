@@ -3,15 +3,11 @@ class SiteController < ApplicationController
   def tickets
     @footmarks = Footmark.order('nr DESC, visit_date DESC')
     @found = @footmarks.count unless @footmarks.blank?
-
-    get_form_data
   end
 
   def programmes
     @footmarks = Footmark.order('nr DESC, visit_date DESC')
     @found = @footmarks.count unless @footmarks.blank?
-
-    get_form_data
   end
 
   def map

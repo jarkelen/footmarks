@@ -11,9 +11,11 @@ class Footmark < ApplicationRecord
   geocoded_by :set_address
   after_validation :geocode
 
-  private
+  def has_ticket?
+    self.has_ticket == true ? true : false
+  end
 
-  def set_address
+  private def set_address
     "#{street} #{city}"
   end
 end

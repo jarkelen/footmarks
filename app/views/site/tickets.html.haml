@@ -3,24 +3,9 @@
     .col-sm-12
       .page-header= I18n.t("site.tickets.title")
 
-  .row
-    .col-sm-12
-      //= render "filter", search_path: site_tickets_path
-
-  .row
-    .col-sm-12
-      .box
-        .box-content
-          .gallery
-            %ul.list-unstyled.list-inline
-              - @footmarks.each do |footmark|
-                - unless footmark.ticket_link.blank? || footmark.ticket_link == '""'
-                  %li
-                    .picture
-                      .actions
-                        .pull-left
-                          %a.btn.btn-link{:href => "#"}
-                            %small
-                              = link_to I18n.t('.general.form.details'), footmark_path(footmark)
-                      %a{"data-lightbox" => "flatty", href: "#{footmark.ticket_link}"}
-                        %img{src: "#{footmark.ticket_link}", width: "250px"}/
+  .row.tickets
+    - @footmarks.each do |footmark|
+      - if footmark.has_ticket?
+        .col-sm-12.col-md-3.ticket
+          = link_to footmark_path(footmark) do
+            = image_tage(ImageBuilder.new(footmark).get_ticket)
