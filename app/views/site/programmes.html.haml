@@ -3,24 +3,9 @@
     .col-sm-12
       .page-header= I18n.t("site.programmes.title")
 
-  .row
-    .col-sm-12
-      //= render "filter", search_path: site_programmes_path
-
-  .row
-    .col-sm-12
-      .box
-        .box-content
-          .gallery
-            %ul.list-unstyled.list-inline
-              - @footmarks.each do |footmark|
-                - unless footmark.programme_link.blank? || footmark.programme_link == '""'
-                  %li
-                    .picture
-                      .actions
-                        .pull-left
-                          %a.btn.btn-link{:href => "#"}
-                            %small
-                              = link_to I18n.t('.general.form.details'), footmark_path(footmark)
-                      %a{"data-lightbox" => "flatty", href: "#{footmark.programme_link}"}
-                        %img{src: "#{footmark.programme_link}", width: "250px"}/
+  .row.programmes
+    - @footmarks.each do |footmark|
+      - if footmark.has_programme?
+        .col-sm-12.col-md-3.programme
+          = link_to footmark_path(footmark) do
+            = image_tag(ImageBuilder.new(footmark).get_programme)

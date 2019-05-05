@@ -15,6 +15,10 @@ class Footmark < ApplicationRecord
     self.has_ticket == true ? true : false
   end
 
+  def has_programme?
+    self.has_programme == true ? true : false
+  end
+
   private def set_address
     "#{street} #{city}"
   end
