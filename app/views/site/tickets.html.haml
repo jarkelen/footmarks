@@ -6,6 +6,6 @@
   .row.tickets
     - @footmarks.each do |footmark|
       - if footmark.has_ticket?
-        .col-sm-12.col-md-3.ticket
+        .col-sm-12.col-md-2.ticket
           = link_to footmark_path(footmark) do
             = image_tag(ImageBuilder.new(footmark).get_ticket)
