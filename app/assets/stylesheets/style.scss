@@ -86,6 +86,12 @@ form {
     }
   }
 }
+.ticket, .programme {
+  margin: 10px;
+}
+.ticket img, .programme img {
+  width: 500px;
+}
 
 @media (max-width: 575.99px) {
   .table {

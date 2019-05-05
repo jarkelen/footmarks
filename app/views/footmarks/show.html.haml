@@ -49,10 +49,10 @@
     .row
       - unless @ticket.blank?
         .col-sm-12.col-md-6
-          .photo= image_tag(@ticket)
+          .ticket= image_tag(@ticket)
       - unless @programme.blank?
         .col-sm-12.col-md-6
-          .photo= image_tag(@programme)
+          .programme= image_tag(@programme)
 
     - unless @photos.blank?
       .gallery
