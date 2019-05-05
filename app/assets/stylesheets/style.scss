@@ -92,6 +92,11 @@ form {
 .ticket img, .programme img {
   width: 500px;
 }
+.tickets {
+  .ticket img {
+    width: 100%;
+  }
+}
 
 @media (max-width: 575.99px) {
   .table {
