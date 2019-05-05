@@ -40,4 +40,12 @@ class FootmarkDecorator < BaseDecorator
     "[#{step}] #{league.name}"
   end
 
+  def checkmark(item)
+    if item == true
+      "X"
+    else
+      "-"
+    end
+  end
+
 end

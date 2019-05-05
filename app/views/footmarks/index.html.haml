@@ -14,10 +14,11 @@
           %th.center= I18n.t('.activerecord.attributes.footmark.visit_date')
           %th= I18n.t('.activerecord.attributes.footmark.match')
           %th.hidden= I18n.t('.activerecord.attributes.footmark.ground')
-          %th.hidden.center= I18n.t('.activerecord.attributes.footmark.result')
-          %th.hidden.center= I18n.t('.activerecord.attributes.footmark.gate')
           %th.hidden= I18n.t('.activerecord.attributes.league.name')
           %th.hidden= I18n.t('.activerecord.attributes.league.country')
+          %th.hidden= "T"
+          %th.hidden= "P"
+          %th.hidden= "I"
       %tbody
         - @footmarks.each do |footmark|
           - decorate footmark do |decorates|
@@ -26,7 +27,8 @@
               %td.center= decorates.data_field(footmark.visit_date.to_date, "date")
               %td= "#{decorates.home_club} v #{decorates.away_club}"
               %td.hidden= decorates.data_field(footmark.ground)
-              %td.hidden.center= decorates.result
-              %td.hidden.center= decorates.data_field(footmark.gate)
               %td.hidden= decorates.data_field(League.find(footmark.league_id).name)
               %td.hidden= decorates.data_field(League.find(footmark.league_id).country)
+              %td.hidden= decorates.checkmark(footmark.has_ticket)
+              %td.hidden= decorates.checkmark(footmark.has_programme)
+              %td.hidden= decorates.checkmark(footmark.has_photos)
