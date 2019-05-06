@@ -6,6 +6,7 @@
   .row.programmes
     - @footmarks.each do |footmark|
       - if footmark.has_programme?
+        - programme = ImageBuilder.new(footmark).get_programme
         .col-sm-12.col-md-2.programme
-          = link_to footmark_path(footmark), { "data-toggle" => "lightbox" } do
-            = image_tag(ImageBuilder.new(footmark).get_programme)
+          = link_to programme, { "data-toggle" => "lightbox" } do
+            = image_tag(programme)
