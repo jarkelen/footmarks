@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_02_095547) do
+ActiveRecord::Schema.define(version: 2019_05_06_121228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2019_05_02_095547) do
     t.boolean "has_photos", default: false
     t.boolean "has_programme", default: false
     t.boolean "has_ticket", default: false
+    t.boolean "has_badge", default: false
     t.index ["away_club_id"], name: "index_footmarks_on_away_club_id"
     t.index ["home_club_id"], name: "index_footmarks_on_home_club_id"
     t.index ["league_id"], name: "index_footmarks_on_league_id"

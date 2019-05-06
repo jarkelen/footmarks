@@ -28,6 +28,7 @@ en:
         has_photos:         Photos uploaded
         has_programme:      Programme uploaded
         has_ticket:         Ticket uploaded
+        has_badge:          Badge uploaded
       league:
         name:               League
         country:            Country

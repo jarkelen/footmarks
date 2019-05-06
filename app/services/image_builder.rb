@@ -36,4 +36,14 @@ class ImageBuilder
     end
     programme
   end
+
+  def get_badge
+    badge= nil
+    if @footmark.has_badge
+      home = Club.find(@footmark.home_club_id).name.downcase.gsub(" ","").gsub("'","").gsub(".","")
+      badge = "https://footmarks.blob.core.windows.net/fm-badges/#{home}_#{@footmark.nr}.jpg"
+    end
+    badge
+  end
+
 end

@@ -19,6 +19,7 @@
           %th.hidden= "T"
           %th.hidden= "P"
           %th.hidden= "I"
+          %th.hidden= "I"
       %tbody
         - @footmarks.each do |footmark|
           - decorate footmark do |decorates|
@@ -32,3 +33,4 @@
               %td.hidden= decorates.checkmark(footmark.has_ticket)
               %td.hidden= decorates.checkmark(footmark.has_programme)
               %td.hidden= decorates.checkmark(footmark.has_photos)
+              %td.hidden= decorates.checkmark(footmark.has_badge)
