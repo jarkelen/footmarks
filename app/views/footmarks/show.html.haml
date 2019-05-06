@@ -48,7 +48,7 @@
 
       - unless @badge.blank?
         .col-sm-12.col-md-6
-          .ticket
+          .badge
             = link_to @badge, { "data-toggle" => "lightbox" } do
               = image_tag(@badge)
       - unless @ticket.blank?

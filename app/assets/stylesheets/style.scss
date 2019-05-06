@@ -88,9 +88,16 @@ form {
     }
   }
 }
-.ticket img, .programme img {
+.ticket img {
   width: 400px;
 }
+.programme img {
+  width: 300px;
+}
+.badge img {
+  width: 150px;
+}
+
 .tickets {  
   .ticket img {
     width: 100%;
