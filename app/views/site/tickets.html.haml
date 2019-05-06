@@ -6,6 +6,7 @@
   .row.tickets
     - @footmarks.each do |footmark|
       - if footmark.has_ticket?
+        - ticket = ImageBuilder.new(footmark).get_ticket
         .col-sm-6.col-md-2.ticket
-          = link_to footmark_path(footmark), { "data-toggle" => "lightbox" } do
-            = image_tag(ImageBuilder.new(footmark).get_ticket)
+          = link_to ticket, { "data-toggle" => "lightbox" } do
+            = image_tag(ticket)
