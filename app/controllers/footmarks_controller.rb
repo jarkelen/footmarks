@@ -18,6 +18,7 @@ class FootmarksController < ApplicationController
     @photos = ImageBuilder.new(@footmark).get_photos
     @ticket = ImageBuilder.new(@footmark).get_ticket
     @programme = ImageBuilder.new(@footmark).get_programme
+    @badge = ImageBuilder.new(@footmark).get_badge
   end
 
   def new
