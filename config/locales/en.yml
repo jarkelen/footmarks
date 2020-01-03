@@ -1,33 +1,75 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
-  hello: "Hello world"
+  general:
+    not_authorized: "The page you want to visit doesn't exist"
+    no_data:        No records
+    form:
+      save:     Save
+      filter:   Filter
+      found:     found
+      clear:    Clear
+      cancel:   Cancel
+      details:  details
+      edit:     edit
+      delete:   remove
+      import:   Import
+      confirm:  Are you sure?
+    site:
+      title:      FootMarks
+      dashboard:  Dashboard
+      charts:
+        visits_per_season:        Visits per season
+  admin:
+    settings:   Settings
+  footmark:
+    titles:
+      index:    FootMarks
+      show:     Footmark details
+      new:      Add footmark
+      edit:     Edit footmark
+      remove:   Remove footmark
+    messages:
+      created:  Footmark has been created
+      updated:  Footmark has been updated
+      removed:  Footmark has been removed
+  club:
+    confirm:    'Are you sure? All visits of this club will be deleted also!'
+    home:       Home
+    away:       Away
+    total:      Total
+    titles:
+      index:    Clubs
+      show:     Club details
+      new:      Add club
+      edit:     Edit club
+      remove:   Remove club
+    messages:
+      created:  Club has been created
+      updated:  Club has been updated
+      removed:  Club has been removed
+  league:
+    confirm:    'Are you sure? All clubs and visits of this league will be deleted also!'
+    titles:
+      index:    Leagues
+      show:     League details
+      new:      Add league
+      edit:     Edit league
+      remove:   Remove league
+    messages:
+      created:  League has been created
+      updated:  League has been updated
+      removed:  League has been removed
+  site:
+    map:
+      title:    Map
+    tickets:
+      title:    Tickets
+    programmes:
+      title:    Programmes
+    leagues_completed:
+      title:    Leagues completed
+    visited_clubs:
+      title:    Visited clubs
+    stats:
+      title:    Statistics
+    the92:
+      title:    The 92
