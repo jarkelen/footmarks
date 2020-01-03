@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.4.4'
+ruby '2.7.0'
 
-gem 'rails', '5.2.2'
+gem 'rails', '6.0.2.1'
 gem 'pg'
 gem 'jbuilder'
 gem 'sdoc', group: :doc
@@ -16,7 +16,7 @@ gem 'haml-rails'
 gem 'uglifier'
 gem 'jquery-rails'
 gem 'sass-rails'
-gem 'bootstrap', '~> 4.0.0.beta3'
+gem 'bootstrap'
 gem 'rack-cors', require: 'rack/cors'
 gem 'geocoder'
 
