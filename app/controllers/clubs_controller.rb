@@ -30,7 +30,7 @@ class ClubsController < ApplicationController
   def update
     @club = Club.find(params[:id])
 
-    if @club.update_attributes(club_params)
+    if @club.update(club_params)
       redirect_to clubs_path, flash: { success: I18n.t('.club.messages.updated') }
     else
       get_form_data

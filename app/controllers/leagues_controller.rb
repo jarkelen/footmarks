@@ -30,7 +30,7 @@ class LeaguesController < ApplicationController
   def update
     @league = League.find(params[:id])
 
-    if @league.update_attributes(league_params)
+    if @league.update(league_params)
       redirect_to leagues_path, flash: { success: I18n.t('.league.messages.updated') }
     else
       get_form_data

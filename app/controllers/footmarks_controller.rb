@@ -48,7 +48,7 @@ class FootmarksController < ApplicationController
   def update
     @footmark = Footmark.find(params[:id])
 
-    if @footmark.update_attributes(footmark_params)
+    if @footmark.update(footmark_params)
       redirect_to footmark_path(@footmark), flash: { success: I18n.t('.footmark.messages.updated') }
     else
       get_all_clubs

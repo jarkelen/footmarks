@@ -19,6 +19,4 @@ Rails.application.routes.draw do
     resources :clubs, except: [:show]
     resources :leagues, except: [:show]
   end
-
-
 end
